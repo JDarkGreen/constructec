@@ -119,8 +119,8 @@ function constructec_customize_register($wp_customize) {
 	
 	// Contact Email
 	$wp_customize->add_section('constructec_contact_email', array(
-		'title' => __('Correo Contacto de Formulario', 'constructec-framework'),
-		'description' => __('Escribe el Correo Contacto de Formulario', 'constructec-framework'),
+		'title' => __('Correo Contacto', 'constructec-framework'),
+		'description' => __('Escribe el Correo Contacto', 'constructec-framework'),
 		'priority' => 37
 	));
 	
@@ -130,7 +130,7 @@ function constructec_customize_register($wp_customize) {
 	));
 	
 	$wp_customize->add_control('constructec_custom_settings[contact_email]', array(
-		'label'    => __('Dirección Contacto de Formulario', 'constructec-framework'),
+		'label'    => __('Email Contacto', 'constructec-framework'),
 		'section'  => 'constructec_contact_email',
 		'settings' => 'constructec_custom_settings[contact_email]',
 		'type'     => 'text'

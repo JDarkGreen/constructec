@@ -50,12 +50,37 @@ function create_post_type(){
 		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
 		'taxonomies'  => array('post-tag','category','servicio_category'),
 		'menu_icon'   => 'dashicons-exerpt-view',
+	);	
+
+	/*|>>>>>>>>>>>>>>>>>>>> TRABAJOS REALIZADOS  <<<<<<<<<<<<<<<<<<<<|*/
+	
+	$labels3 = array(
+		'name'               => __('Trabajos Realizados'),
+		'singular_name'      => __('Trabajo Realizado'),
+		'add_new'            => __('Nuevo Trabajo Realizado'),
+		'add_new_item'       => __('Agregar nuevo Trabajo Realizado'),
+		'edit_item'          => __('Editar Trabajo Realizado'),
+		'view_item'          => __('Ver Trabajo Realizado'),
+		'search_items'       => __('Buscar Trabajo Realizados'),
+		'not_found'          => __('Trabajo Realizado no encontrado'),
+		'not_found_in_trash' => __('Trabajo Realizado no encontrado en la papelera'),
+	);
+
+	$args3 = array(
+		'labels'      => $labels3,
+		'has_archive' => true,
+		'public'      => true,
+		'hierachical' => false,
+		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
+		'taxonomies'  => array('post-tag','category'),
+		'menu_icon'   => 'dashicons-schedule',
 	);
 
 
 	/*|>>>>>>>>>>>>>>>>>>>> REGISTRAR  <<<<<<<<<<<<<<<<<<<<|*/
 	register_post_type( 'banner'   , $args  );
 	register_post_type( 'servicio' , $args2 );
+	register_post_type( 'works' , $args3 );
 	
 	flush_rewrite_rules();
 }

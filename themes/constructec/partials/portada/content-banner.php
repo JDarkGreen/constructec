@@ -27,27 +27,25 @@
 				
 				<div class="container">
 		    	<!-- CAPTION O INFORMACION -->
-		    	<div class="carousel-caption text-xs-left">
+		    	<div class="carousel-caption">
 		    		<!-- Titulo -->
-				    <h3 class="text-capitalize"><?php the_title(); ?></h3>
+				    <h3 class="text-uppercase"><?php the_title(); ?></h3>
 				    <!-- Get the content -->
-				    <p><?= get_the_content(); ?></p>
-				    <!-- Boton ver más -->
-				    <a href="#" class="btn__show-more text-uppercase"><?php _e('ver más' , LANG ); ?></a>
+				    <?= apply_filters( 'the_content' , get_the_content() ); ?>
 				  </div> <!-- /carousel-caption -->
 				</div><!-- /.container -->
 
 	    </div> <!-- /carousel-item -->
 		<?php $i++; endwhile; ?> 
   </div> <!-- /carousel-inner -->
-
-  <a class="left carousel-control" href="#carousel-home" role="button" data-slide="prev">
-    <span class="icon-prev" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+	
+	<!-- FLECHAS DEL CAROUSEL -->
+  <a class="arrowCarouselHome arrowCarouselHome--left" href="#carousel-home" role="button" data-slide="prev">
+   <i class="fa fa-chevron-left" aria-hidden="true"></i>
   </a>
-  <a class="right carousel-control" href="#carousel-home" role="button" data-slide="next">
-    <span class="icon-next" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+
+  <a class="arrowCarouselHome arrowCarouselHome--right" href="#carousel-home" role="button" data-slide="next">
+    <i class="fa fa-chevron-right" aria-hidden="true"></i>
   </a>
 
 </section> <!-- /.carousel-home -->

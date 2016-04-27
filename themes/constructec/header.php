@@ -35,47 +35,77 @@
 <!-- Header -->
 <header class="mainHeader">
 	<!-- Seccion redes sociales -->
-	<div class="container">
-		<!-- Seccion de redes sociales -->
-		<section class="mainHeader__social-link">
+	<section class="mainHeader__social-link">
+		<div class="container">
 			<ul class="list-inline">
 				<li>Síguenos en: </li>
 				<!-- Facebook -->
-				<li><a href="#">fb</a></li>
+				<?php $fb = $options['red_social_fb']; if( !empty($fb)): ?>
+					<li><a target="_blank" href="<?= $fb ?>"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<?php endif; ?>
 				<!-- Twitter -->
-				<li><a href="#">tw</a></li>
+				<?php $tw = $options['red_social_twitter']; if( !empty($tw)): ?>
+					<li><a target="_blank" href="<?= $tw ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<?php endif; ?>
 				<!-- Youtube -->
-				<li><a href="#">yt</a></li>
+				<?php $ytube = $options['red_social_ytube']; if( !empty($ytube)): ?>
+					<li><a target="_blank" href="<?= $ytube ?>"><i class="fa fa-youtube" aria-hidden="true"></i>
+					</a></li>
+				<?php endif; ?>
 			</ul>
-		</section> <!-- /.mainHeader__social-link -->
+		</div> <!-- /.container -->
+	</section> <!-- /.mainHeader__social-link -->
+	
+	<!-- Seccion Principal-->
+	<section class="mainHeader__content">
+		<!-- Container -->
+		<div class="container">
+			<div class="row flex container-flex-center">
+				<!-- Logo  -->
+				<div class="col-xs-12 col-sm-5">
+					<h1 class="logo">
+						<a href="<?= site_url() ?>">
+							<?php if( !empty($options['logo']) ) : ?>
+								<img src="<?= $options['logo'] ?>" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-responsive center-block" />
+							<?php else: ?>
+								<img src="<?= IMAGES ?>/logo.png" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-responsive center-block" />
+							<?php endif; ?>
+						</a>
+					</h1><!-- /logo -->
+				</div><!-- /.col-xs-12 col-sm-5 -->
 
-		<div class="row">
-			<!-- Logo  -->
-			<div class="col-xs-12 col-sm-5">
-				<h1 class="logo">
-					<a href="<?= site_url() ?>">
-						<?php if( !empty($options['logo']) ) : ?>
-							<img src="<?= $options['logo'] ?>" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-responsive center-block" />
-						<?php else: ?>
-							<img src="<?= IMAGES ?>/logo.png" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-responsive center-block" />
-						<?php endif; ?>
-					</a>
-				</h1><!-- /logo -->
-			</div><!-- /.col-xs-12 col-sm-5 -->
+				<div class="col-xs-12 col-sm-7">
+					<?php 
+						$tel = $options['contact_tel']; $cel = $options['contact_cel'];
+						if( !empty($tel) || !empty($cel) ) : 
+					?>
+						<div class="col-xs-6">
+							<article class="mainHeader__content__article">
+								<!-- Icono -->
+								<i class="fa fa-phone" aria-hidden="true"></i>
+								<!-- Texto --> 
+								<?php if( !empty($tel) ) { echo $tel . "<br/>"; } ?> 
+								<?php if( !empty($cel) ) { echo $cel; } ?> 
+							</article> <!-- /.mainHeader__content__article -->
+						</div> <!-- /.col-xs-6 --> 
+					<?php endif; ?>
+					
+					<!-- Email -->
+					<?php 
+						$email = $options['contact_email']; if( !empty($email) ) : 
+					?>
+					<div class="col-xs-6">
+						<article class="mainHeader__content__article">
+						<!-- Icono -->
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+						<!-- Texto --> <?= $email ?>
+					</div>  <!-- /.col-xs-6 -->
+					<?php endif; ?>
+				</div><!-- /.col-xs-12 col-sm-7 -->
+			</div><!-- /.row -->
 
-			<div class="col-xs-12 col-sm-7">
-				<div class="col-xs-6">
-					<!-- Icono --> <i></i>
-					<!-- Texto --> ( 511 ) 3512089 <br/> 993 726 026 / 958 640 790
-				</div> <!-- /.col-xs-6 --> 
-				<div class="col-xs-6">
-					<!-- Icono --> <i></i>
-					<!-- Texto --> proyectos@constructec.com.pe
-				</div>  <!-- /.col-xs-6 -->
-			</div><!-- /.col-xs-12 col-sm-7 -->
-		</div><!-- /.row -->
-
-	</div><!-- /.container -->
+		</div><!-- /.container -->
+	</section> <!-- /.mainHeader__content -->
 </header> <!-- /.mainHeader -->
 
 <!-- Navegacion Principal -->
@@ -83,7 +113,7 @@
 	<div class="container">
 		<?php wp_nav_menu(
 			array(
-				'menu_class'     => 'list-inline text-center',
+				'menu_class'     => 'main-menu list-inline text-center',
 				'theme_location' => 'main-menu'
 			));
 		?>

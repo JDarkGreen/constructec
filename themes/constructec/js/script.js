@@ -12,14 +12,17 @@ var j = jQuery.noConflict();
 			interval : 3000,
 		});
 
+		/*|°°------------- Flechas del carousel COMUNES ---------------°°|*/
+		j(".arrow-carousel-common").on('click',function(e){ e.preventDefault(); });
+
 		/*|----------------------------------------------------------------------|*/
 		/*|-----  CAROUSEL SERVICIOS - PORTADA   ------|*/
 		/*|----------------------------------------------------------------------|*/
-		var carousel_servicios = j("#owl-carousel-servicios").owlCarousel({
-			items          : 4,
+		var carousel_servicios = j("#carousel-service-home").owlCarousel({
+			items          : 3,
 			lazyLoad       : false,
 			loop           : true,
-			margin         : 12,
+			margin         : 26,
 			nav            : false,
 			autoplay       : true,
 			responsiveClass: true,
@@ -31,49 +34,44 @@ var j = jQuery.noConflict();
 		            items:1
 		        },
 		      	1024:{
-		            items:4
+		            items: 3
 		        },
 	    	}
 		});
 
-
 		/*|°°------------- Flechas del carousel ---------------°°|*/
-		j(".arrow-service-carousel").on('click',function(e){ e.preventDefault(); });
 		//prev carousel
-		j("#arrow-service-carousel--prev").on('click',function(e){ 
-			carousel_servicios.trigger('prev.owl.carousel' , [500] );
+		j("#arrow-carousel-service--left").on('click',function(e){ 
+			carousel_servicios.trigger('prev.owl.carousel' , [900] );
 		});
 		//next carousel
-		j("#arrow-service-carousel--next").on('click',function(e){ 
-			carousel_servicios.trigger('next.owl.carousel' , [500] );
+		j("#arrow-carousel-service--right").on('click',function(e){ 
+			carousel_servicios.trigger('next.owl.carousel' , [900] );
 		});
 
 		/*|----------------------------------------------------------------------|*/
-		/*|-----  CAROUSEL ARTICULOS - SECCIONES GENERALES  ------|*/
+		/*|-----  CAROUSEL PROJECTOS - PORTADA  ------|*/
 		/*|----------------------------------------------------------------------|*/
-		j("#carousel-articles").jCarouselLite({
-			vertical: true,
-			auto    : 2500,
-			speed   : 1500,
-			visible : 3,	
-  	});
-		/*|-
-		---------------------------------------------------------------------|*/
-		/*|-----  CAROUSEL EMPRESA - PAGINA EMPRESA  ------|*/
-		/*|----------------------------------------------------------------------|*/
-  	j("#carousel-gallery-empresa").owlCarousel({
-			autoplay       : true,
-			autoplayTimeout: 2500,
-			dots           : true,
-			fluidSpeed     : 2000,
+		var carousel_projectos = j("#carousel-trabajos-home").owlCarousel({
 			items          : 1,
 			lazyLoad       : false,
 			loop           : true,
-			mouseDrag      : false,
 			nav            : false,
+			autoplay       : true,
 			responsiveClass: true,
-			smartSpeed     : 2000,
+			mouseDrag      : false,
+			autoplayTimeout: 2500,
+			smartSpeed     : 1500,
 		});
+		//prev carousel
+		j("#arrow-carousel-project--left").on('click',function(e){ 
+			carousel_projectos.trigger('prev.owl.carousel' , [900] );
+		});
+		//next carousel
+		j("#arrow-carousel-project--right").on('click',function(e){ 
+			carousel_projectos.trigger('next.owl.carousel' , [900] );
+		});
+
 
 
 	});

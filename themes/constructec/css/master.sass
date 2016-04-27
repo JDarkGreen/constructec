@@ -1,10 +1,17 @@
 @import "compass/css3"
 
+//Importar Fuentes
+@import url(https://fonts.googleapis.com/css?family=Montserrat)
+
 /***************************************************************************************/
 /**-------------------------- VARIABLES ---------------------------------------------**/
 /***************************************************************************************/
 
-$gray_color : #D8DADE
+$gray_color        : #D8DADE
+$gray_text         : #6B6C71
+$gray_fondos       : #3A3A3A
+
+$orange_constructec: #FF8729
 
 
 /***************************************************************************************/
@@ -16,6 +23,19 @@ body,html
 	width    : 100% 
 
 /***************************************************************************************/
+/**-------------------------- KEYFRAMES  ---------------------------------------------**/
+/***************************************************************************************/
+
+//PULSE
++keyframes( pulse )
+	0%
+		left: -5px 
+	50%
+		left: 0
+	100%
+		left: -5px
+
+/***************************************************************************************/
 /**-------------------------- SECCIONES EN COMUN -------------------------------------**/
 /***************************************************************************************/
 
@@ -23,6 +43,8 @@ body,html
 /*°|| =================> POSICION RELATIVA */
 .relative
 	position: relative
+.flex
+	display: flex
 
 //Contenedor con display flex
 .container-flex
@@ -36,21 +58,82 @@ body,html
 .container--content-flex-center
 	align-content: center 
 
-//LINEA SEPARADORA
-/*°|| =========> */
-.line-separator
-	background: $gray_separator
-	display   : block 
-	height    : 3px
-	margin    : 37px 15px
+/*°|| ================>> BOTONES */
+//boton ver mas 
+.btn__show-more 
+	background : $gray_fondos
+	color      : white 
+	display    : inline-block
+	font-size  : 15px 
+	line-height: 1em 
+	padding    : 10px 20px 
+	+transition( all 500ms ease )
+	&:hover, &:focus
+		color          : white  
+		text-decoration: none 
+	&:hover 
+		+scale( 1.2 )
 
-/*°|| ================>> BANNER DE PÁGINAS <<==========================*/
-/* figure */
-.pageCommon__banner 
+/*°|| =============>> SUBTITULOS COMUNES */
+.sectionCommon__subtitle
+	color    : $gray_fondos
+	display  : inline-block
+	font-size: 23px
+	position : relative 
+	//before
+	&:before 
+		background: $orange_constructec
+		bottom    : 0 
+		content   : ''
+		height    : 2px 
+		left      : 0 
+		margin    : 3px auto 0 
+		position  : absolute
+		right     : 30px
 
-.pageCommon__banner__title
+//variacion a color blanco
+.sectionCommon__subtitle--white
+	color: white 
+	&:before 
+		background: white 
 
 
+/*°|| ================>> FLECHAS DE CAROUSEL */
+.arrow-carousel-common
+	align-items    : center
+	background     : $gray_fondos
+	color          : white 
+	display        : flex
+	height         : 36px 
+	justify-content: center 
+	position       : absolute
+	width          : 36px
+	+transition( all 200ms ease-in-out )
+	//hover 
+	&:hover, &:focus
+		color          : white 
+		text-decoration: none 
+	&:hover
+		+opacity( 0.9 )
+		//icono pulse
+		i 
+			animation: pulse 1s linear infinite
+	//icono
+	i 
+		position: relative
+
+/*°|| ================>> BANNER SERVICIO */
+.sectionCommonBanner__services
+	background : $orange_constructec
+	color      : white 
+	display    : flex
+	flex-wrap  : wrap 
+	font-family: 'Montserrat', sans-serif
+	padding    : 24px 0
+	//parrafo
+	p 
+		display: inline-block
+		margin : 0 20px
 
 /***************************************************************************************/
 /**-------------------------- HEADER   -----------------------------------------------**/
@@ -58,28 +141,242 @@ body,html
 
 //°| ========= >> header
 .mainHeader
-	padding: 14px 0 0
+	padding: 0
 
 //| ° =========>> REDES SOCIALES EN EL HEADER - section
 .mainHeader__social-link
+	background: $gray_color
+	padding   : 4px 0
 	ul
 		margin    : 0 auto 
 		padding   : 0 
 		text-align: right 
 		li 
+			color    : $gray_text
+			display  : inline-block
+			font-size: 14px
+			padding  : 0 5px 
+			a 
+				color          : $gray_text
+				display        : block
+				font-size      : 18px 
+				text-decoration: none
+				+transition( all 500ms ease )
+				//hover
+				&:hover 
+					+opacity( 0.9 )
+					+rotateY( 360deg )
 
-
+//|° ==========>> Contenido Principal Header
+.mainHeader__content
+	padding: 16px 0
+//articulo
+.mainHeader__content__article
+	align-items: center
+	display    : flex
+	flex-wrap  : wrap
+	font-size  : 14px
+	font-weight: 700
+	line-height: 1.3em
+	margin     : 0
+	//iconos
+	i 
+		align-items    : center
+		border         : 2px solid
+		color          : $orange_constructec
+		display        : inline-flex
+		font-size      : 20px
+		height         : 40px
+		justify-content: center
+		margin         : 0 16px 0 0
+		width          : 40px
 
 /***************************************************************************************/
 /**-------------------------- NAVIGATION----------------------------------------------**/
 /***************************************************************************************/
 
 //°|=============>> navegacion principal
+.mainNavigation
+	position: relative
+	z-index : 99999
+	ul
+		margin: 0 auto
+		//todos los links
+		a 
+			background     : $orange_constructec
+			color          : black 
+			display        : block 
+			margin         : 0 -3px 
+			padding        : 14px 
+			text-decoration: none
+			text-transform : uppercase 
+			+transition( all 500ms ease )
+		//main menu
+		&.main-menu
+			text-align: center 
+			li 
+				display: inline-block 
+				a 
+					border-left: 1px solid white
+				//primer hijo de la lista sin borde
+				&:first-child
+					a 
+						border: none
+				//active u hover
+				&.current-menu-item, &.current_page_item ,&:hover 
+					a 
+						color: white
 
 
 /***************************************************************************************/
 /**-------------------------- PAGINA DE INICIO PORTADA -------------------------------**/
 /***************************************************************************************/
 
+/* ------------- CAROUSEL INICIO --------------------------- */
+.pageInicio__slider
+	margin : -52px auto 0
+	//contanedor wrapper
+	.carousel-inner
+		.carousel-item
+			//Informacion o caption del slider
+			.carousel-caption
+				font-family: 'Montserrat', sans-serif
+				padding    : 0
+				top        : 25%
+				//Titulos 
+				h3 
+					border-bottom: 1px solid white 
+					display      : inline-block
+					margin       : 0 auto 35px  
+					padding      : 0 5px
+				//parrafo
+				p 
+					font-size     : 60px
+					font-weight   : 600
+					letter-spacing: -2px
+					line-height   : 1em
+					margin        : 0 auto 
+	//Flechas del Carousel
+	.arrowCarouselHome
+		align-items    : center
+		background     : black 
+		display        : flex 
+		height         : 33px
+		justify-content: center
+		position       : absolute 
+		text-decoration: none 
+		top            : 50%
+		width          : 33px
+		+transition( all 500ms ease )
+		//hover 
+		&:hover
+			+scale( 1.2 )
+			+opacity( 0.8 )
+		//icono
+		i
+			color: white
 
+	//Flecha izquierda
+	.arrowCarouselHome--left
+		left: 3%
+	//Flecha derecha
+	.arrowCarouselHome--right
+		right: 3%
 
+/* ------------- SECCION DE SERVICIOS - INICIO ------------- */
+.pageInicio__services
+	background: white 
+	position  : relative
+	//before
+	&:before 
+		background: $gray_fondos
+		bottom    : 0
+		content   : ''
+		height    : 50%
+		left      : 0
+		position  : absolute
+		right     : 0 
+		z-index   : 999
+
+	//Contenedor principal
+	.pageInicio__services__content
+		font-family: 'Montserrat', sans-serif
+		margin     : 27px 0 
+		position   : relative
+		z-index    : 99999
+
+//Carousel
+.pageInicio__services__carousel
+	margin: 12px auto 0
+	//link
+	a 
+		text-decoration: none
+	//imagen
+	figure 
+		overflow: hidden
+		img 
+			+transition( all 500ms ease-in-out )
+		//hover 
+		&:hover 
+			img 
+				+scale( 1.2 )
+	//titulos
+	.item-title
+		color     : white
+		font-size : 16px
+		text-align: center
+
+//flechas del carousel
+.arrow-carousel-service
+	right          : 0
+	top            : 0
+
+//flecha izquierda
+.arrow-carousel-service--left
+	right: 38px
+
+/* ------------- SECCION DE BIENVENIDA - INICIO ------------- */
+.pageInicio__welcome
+	background: 100% 100%
+	background: url("../images/pages/inicio/banner_nosotros.jpg") no-repeat
+	color     : white
+	padding   : 30px 0 
+
+	//imagen
+	figure 
+		margin   : 0 auto 
+		max-width: 244px 
+		width    : 100%
+
+/* ------------- SECCION MISCELANEO   - INICIO ------------- */
+.pageInicio__miscelaneo
+	margin: 29px auto 
+
+/* ------------- SECCION DE PROJECTOS - INICIO ------------- */
+.pageInicio__projects
+
+//Carousel 
+.pageInicio__projects__carousel
+	//articulo
+	.item-carousel-project
+		//imkagen 
+		figure 
+			margin: 0 auto 
+	//titulo
+	.item-carousel-project__title
+		background : $orange_constructec
+		color      : white
+		font-size  : 16px 
+		font-weight: 600 
+		line-height: 1rem 
+		margin     : 0 auto   
+		padding    : 10px 16px 
+
+//flechas de carousel
+.arrow-carousel-project
+	bottom : 0 
+	right  : 0 
+	z-index: 999
+//flecha izquierda
+.arrow-carousel-project--left
+	right: 38px
