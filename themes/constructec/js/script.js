@@ -77,11 +77,6 @@ var j = jQuery.noConflict();
   			});
 		});
 
-		//Funcion Activar Carousel
-		
-
-
-
 		/*|°°------------- Flechas del carousel COMUNES ---------------°°|*/
 		j(".arrow-carousel-common").on('click',function(e){ e.preventDefault(); });
 
@@ -161,8 +156,29 @@ var j = jQuery.noConflict();
 				smartSpeed     : 1500,
 			});
 		}
-		
 
+		/*|----------------------------------------------------------------------|*/
+		/*|-----  CAROUSEL EMPRESA  ------|*/
+		/*|----------------------------------------------------------------------|*/
+
+		var carousel_empresa = j("#carousel-gallery-empresa");
+
+		if( carousel_empresa.length ){
+			carousel_empresa.owlCarousel({
+				items          : 1,
+				lazyLoad       : false,
+				loop           : true,
+				nav            : false,
+				autoplay       : true,
+				responsiveClass: true,
+				mouseDrag      : false,
+				autoplayTimeout: 2500,
+				smartSpeed     : 1500,
+				dots           : true,
+			});
+		}
+		
+		
 
 
 	});

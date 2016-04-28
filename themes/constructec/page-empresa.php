@@ -3,7 +3,7 @@
 <!-- Global Post -->
 <?php 
 	global $post; 
-	$options = get_option('sbg_custom_settings'); 
+	$options = get_option('constructec_custom_settings'); 
 ?>
 
 <!-- Get Header -->
@@ -23,7 +23,7 @@
 	</figure>
 
 	<!-- Título de la pagina posicion absoluta -->
-	<h2 class="pageCommon__banner__title">
+	<h2 class="pageCommon__banner__title text-uppercase">
 		<strong> <?php _e(  $post->post_title , LANG ); ?></strong>
 	</h2>
 
@@ -33,14 +33,19 @@
 <section class="pageEmpresa pageEmpresa__content">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-6">
+
+			<div class="col-xs-12 col-sm-6 text-justify">
 				<!-- Titulo -->
-				<h2 class="pageEmpresa__title text-uppercase"><?php _e('Empresa', LANG ); ?></h2>
-				<!-- texto -->
-				<?php $info_empresa = $post->post_content; if( !empty($info_empresa) ) : ?>
-					<?= apply_filters('the_content', $info_empresa ); ?>
+				<h2 class="sectionCommon__subtitle pageEmpresa__subtitle text-uppercase">
+					<strong><?php _e( 'Constructec' , LANG ); ?></strong>
+				</h2>
+
+				<!-- Contenido -->
+				<?php $empresa_text = $post->post_content;  if( !empty($empresa_text)) : ?>
+					<?= apply_filters('the_content', $empresa_text ); ?>
 				<?php endif; ?>
 			</div> <!-- /.col-xs-12 col-sm-6 -->
+
 			<div class="col-xs-12 col-sm-6">
 				<!-- Imagenes Galeria -->
 				<section id="carousel-gallery-empresa" class="pageEmpresa__gallery">
@@ -67,43 +72,47 @@
 			</div> <!-- /.col-xs-12 col-sm-6 -->
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
-</section> <!-- /.pageEmpresa -->
+</section> <!-- /.pageEmpresa pageEmpresa__content -->
 
 <!-- SECCION MISION Y VISION DE LA EMPRESA -->
 <section class="pageEmpresa pageEmpresa__mision">
 	<div class="container">
 		<div class="row">
-			<!-- VISION -->
-			<div class="col-xs-12 col-sm-6">
-				<!-- Titulo -->
-				<h2 class="pageEmpresa__title text-uppercase"><?php _e('visión', LANG ); ?></h2>
-				<?php $vision = $options['text_mision']; if( !empty($vision) ) : ?>
-					<article class="article-box-information">
-						<?= apply_filters('the_content' , $vision ); ?>
-					</article> <!-- /.article-box-information -->
-				<?php endif; ?>
-			</div> <!-- /.col-xs-6 -->
-			<!-- MISION -->
-			<div class="col-xs-12 col-sm-6">
-				<!-- Titulo -->
-				<h2 class="pageEmpresa__title text-uppercase"><?php _e('misión', LANG ); ?></h2>
-				<?php $mision = $options['text_mision']; if( !empty($mision) ) : ?>
-					<article class="article-box-information">
-						<?= apply_filters('the_content' , $mision ); ?>
-					</article> <!-- /.article-box-information -->
-				<?php endif; ?>
-			</div> <!-- /.col-xs-6 -->
+			<!-- Contenido y fondo -->
+			<section class="pageEmpresa__mision__content">
+				<!-- MISION -->
+				<div class="col-xs-12 col-sm-6">
+					<!-- Titulo -->
+					<h2 class="pageEmpresa__title text-uppercase"><?php _e('misión', LANG ); ?></h2>
+					<?php $mision = $options['text_mision']; if( !empty($mision) ) : ?>
+						<article class="article-box-information">
+							<?= apply_filters('the_content' , $mision ); ?>
+						</article> <!-- /.article-box-information -->
+					<?php endif; ?>
+				</div> <!-- /.col-xs-6 -->
+
+				<!-- VISION -->
+				<div class="col-xs-12 col-sm-6">
+					<!-- Titulo -->
+					<h2 class="pageEmpresa__title text-uppercase"><?php _e('visión', LANG ); ?></h2>
+					<?php $vision = $options['text_vision']; if( !empty($vision) ) : ?>
+						<article class="article-box-information">
+							<?= apply_filters('the_content' , $vision ); ?>
+						</article> <!-- /.article-box-information -->
+					<?php endif; ?>
+				</div> <!-- /.col-xs-6 -->
+
+				<div class="clearfix"></div>
+			</section> <!-- /.pageEmpresa__mision__content -->
 		</div> <!-- /.row -->
 	</div><!-- /.container -->
 </section> <!-- /.pageEmpresa pageEmpresa__mision -->
 
-<!-- Linea Separadora -->
-<div class="container">
-	<div class="line-separator"></div>
-</div>
+<!-- Incluir Banner de Servicios -->
+<?php include(locate_template('partials/banner-services.php')); ?>
 
-<!-- Incluir Plantilla Miscelaneo -->
-<?php include( locate_template("partials/miscelaneo.php") ); ?>
+<!-- Incluir template de carousel clientes -->
+<?php include( locate_template("partials/carousel-clientes.php") ); ?>
 
-<!-- Get Header -->
+<!-- Get Footer -->
 <?php get_footer(); ?>

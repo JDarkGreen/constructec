@@ -121,7 +121,6 @@ body,html
 	&:before 
 		background: white 
 
-
 /*°|| ================>> FLECHAS DE CAROUSEL */
 .arrow-carousel-common
 	align-items    : center
@@ -163,6 +162,36 @@ body,html
 .pageCommon__clientes
 	margin: 60px auto 46px
 .pageCommon__clientes__carousel
+
+/*°|| ================>> BANNERS DE CADA PÁGINA */
+.pageCommon__banner
+	figure 
+		margin: 0 auto
+.pageCommon__banner__title
+	color          : white
+	position       : absolute
+	top            : 0
+	display        : flex
+	align-items    : center
+	left           : 0
+	right          : 0
+	bottom         : 0
+	justify-content: center
+	color          : white
+	font-size      : 25px
+	//strong 
+	strong 
+		position: relative
+		//before
+		&:before 
+			background: $orange_constructec
+			bottom    : -4px 
+			content   : ''
+			height    : 2px 
+			left      : 0 
+			position  : absolute
+			right     : 40%
+
 
 /***************************************************************************************/
 /**-------------------------- HEADER   -----------------------------------------------**/
@@ -416,6 +445,63 @@ body,html
 //flecha izquierda
 .arrow-carousel-project--left
 	right: 38px
+
+/***************************************************************************************/
+/**----------------------------------- PAGINA EMPRESA  -------------------------------**/
+/***************************************************************************************/
+
+//primera seccion informacion
+.pageEmpresa__content
+	margin: 60px auto 0
+	//parrafos
+	p 
+		font-size: 15px
+//subtitulos 
+.pageEmpresa__subtitle
+	margin: 0 auto 27px
+//galeria empresa.
+.pageEmpresa__gallery
+	max-width: 407px
+	width    : 100%
+	margin   : 0 auto 
+	//controles del carousel
+	.owl-controls
+		bottom    : 0
+		left      : 0
+		position  : absolute
+		right     : 0
+		text-align: center
+		//dots
+		.owl-dot
+			background   : white
+			border-radius: 50%
+			display      : inline-block
+			height       : 15px
+			margin       : 0 4px 
+			width        : 15px
+		//active
+		.active 
+			background: $orange_constructec
+
+
+//segunda seccion mision y vision
+.pageEmpresa__mision
+	margin: 46px auto
+.pageEmpresa__mision__content
+	background     : url("../images/pages/empresa/empresa_baner-vision.jpg") no-repeat
+	background-size: cover
+	color          : white 
+	padding        : 42px 42px 42px 35%
+	//subtitulos interiores
+	.pageEmpresa__title
+		border-bottom: 1px solid 
+		display      : inline-block
+		font-size    : 25px 
+		font-weight  : 700
+		padding      : 0 15px 0 0 
+	//articulos 
+	.article-box-information
+		text-align: justify
 
 /***************************************************************************************/
 /**----------------------------    FOOTER  -------------------------------------------**/
