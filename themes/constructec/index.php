@@ -103,6 +103,7 @@
 
 	<section class="container">
 		<div class="row">
+
 			<div class="col-xs-7">
 				<!-- Seccion Trabajos Realizados -->
 				<section class="pageInicio__projects">
@@ -157,14 +158,48 @@
 
 				</section> <!-- /.pageInicio__projects -->
 			</div> <!-- /.col-xs-7 -->
+
 			<div class="col-xs-5">
+				<!-- Titulo -->
+					<h2 class="sectionCommon__subtitle text-uppercase">
+						<strong><?php _e('facebook' , LANG ); ?></strong>
+					</h2>
+
 				<!-- Facebook -->
+				<?php $link_facebook = $options['red_social_fb']; 
+					if( !empty($link_facebook) ) :
+				?>
+					<section class="pageInicio__miscelaneo__facebook">
+						<!-- Contebn -->
+						<div id="fb-root" class=""></div>
+
+						<!-- Script -->
+						<script>(function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0];
+							if (d.getElementById(id)) return;
+							js = d.createElement(s); js.id = id;
+							js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5";
+							fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
+
+						<div class="fb-page" data-href="<?= $link_facebook ?>" data-tabs="timeline" data-small-header="false"  data-adapt-container-width="true" data-height="420" data-hide-cover="false" data-show-facepile="true">
+							<div class="fb-xfbml-parse-ignore">
+								<blockquote cite="<?= $link_facebook ?>">
+									<a href="<?= $link_facebook ?>"><?php bloginfo('name'); ?></a>
+								</blockquote>
+							</div>
+						</div>
+					</section> <!-- /.pageInicio__miscelaneo__facebook text-xs-center -->
+
+				<?php endif; ?>
 			</div> <!-- /.col-xs-5 -->
 		</div>
 	</section>
 
 </section> <!-- /. pageInicio__miscelaneo-->
 
+<!-- Incluir template de carousel clientes -->
+<?php include( locate_template("partials/carousel-clientes.php") ); ?>
 
 <!-- Footer -->
 <?php get_footer(); ?>

@@ -135,6 +135,11 @@ body,html
 		display: inline-block
 		margin : 0 20px
 
+/*°|| ================>> SECCION Y CAROUSEL CLIENTES */
+.pageCommon__clientes
+	margin: 60px auto 46px
+.pageCommon__clientes__carousel
+
 /***************************************************************************************/
 /**-------------------------- HEADER   -----------------------------------------------**/
 /***************************************************************************************/
@@ -352,6 +357,11 @@ body,html
 .pageInicio__miscelaneo
 	margin: 29px auto 
 
+	//seccion contenedora facebook
+	.pageInicio__miscelaneo__facebook
+		.fb-page
+			border: 5px solid black
+
 /* ------------- SECCION DE PROJECTOS - INICIO ------------- */
 .pageInicio__projects
 
@@ -380,3 +390,82 @@ body,html
 //flecha izquierda
 .arrow-carousel-project--left
 	right: 38px
+
+/***************************************************************************************/
+/**----------------------------    FOOTER  -------------------------------------------**/
+/***************************************************************************************/
+
+.mainFooter
+	background : $gray_fondos
+	color      : white 
+	font-family: Arial,sans-serif
+	padding    : 34px 0 0 0
+
+//clase contenedora
+.mainFooter__content
+	border-right: 1px solid $gray_color
+	//parrafos 
+	p 
+		font-size  : 14px
+		margin     : 0 auto 
+		padding    : 0 15% 0 0
+		text-align : justify
+
+	//MENUS EN EL FOOTER 
+	ul 
+		list-style-type: none
+		margin         : 0 auto 
+		padding        : 0 
+		//redes sociales - ul 
+		&.mainFooter__social-link
+			//li 
+			li 
+				color         : $gray_color
+				display       : inline-block
+				padding       : 0 24px 0 0
+				vertical-align: middle 
+				&:last-child
+					padding: 0
+				//links -a 
+				a 
+					color    : $gray_color
+					display  : block 
+					font-size: 20px
+					//icon
+					i 
+						position: relative
+					//hover 
+					&:hover 
+						i 
+							animation: pulse 1s linear infinite
+		
+		//menu contacto
+		&.mainFooter__menu-contacto
+			li 
+				font-size: 14px 
+				margin   : 0 auto 14px
+				//icono 
+				i 
+					font-size : 18px 
+					margin    : 0 14px 0 0
+					text-align: center 
+					width     : 18px 
+
+//variacion clase contenedora
+.mainFooter__content--no-border
+	border: none
+
+//titulos
+.mainFooter__content__title
+	border-bottom: 2px solid $orange_constructec
+	display      : inline-block
+	font-family  : 'Montserrat', sans-serif
+	font-size    : 20px
+	margin       : 0 auto 22px 
+	padding      : 0 0 10px 
+
+//Seccion de desarrollo
+.mainFooter__developer
+	background: $orange_constructec
+	margin    : 40px auto 0
+	padding   : 25px 0 10px 

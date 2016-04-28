@@ -214,8 +214,8 @@ function constructec_customize_register($wp_customize) {
 
 	//Customizar WIDGET NOSOTROS
 	$wp_customize->add_section('constructec_widget_nosotros', array(
-		'title' => __('Sección WIDGET NOSOTROS', 'constructec-framework'),
-		'description' => __('Sección WIDGET NOSOTROS', 'constructec-framework'),
+		'title' => __('Sección NOSOTROS', 'constructec-framework'),
+		'description' => __('Sección NOSOTROS', 'constructec-framework'),
 		'priority' => 40
 	));
 	
@@ -241,7 +241,27 @@ function constructec_customize_register($wp_customize) {
 		'label'    => __('Imagen Nosotros', 'constructec-framework'),
 		'section'  => 'constructec_widget_nosotros',
 		'settings' => 'constructec_custom_settings[image_nosotros]',
-	)));
+	)));	
+
+	//Customizar Informacion Footer
+	$wp_customize->add_section('constructec_widget_footer', array(
+		'title' => __('Sección Footer', 'constructec-framework'),
+		'description' => __('Sección Footer', 'constructec-framework'),
+		'priority' => 41
+	));
+	
+	//textarea
+	$wp_customize->add_setting('constructec_custom_settings[widget_footer]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('constructec_custom_settings[widget_footer]', array(
+		'label'    => __('Escribe contenido en sección FOOTER', 'constructec-framework'),
+		'section'  => 'constructec_widget_footer',
+		'settings' => 'constructec_custom_settings[widget_footer]',
+		'type'     => 'textarea'
+	));
 	
 }	
 ?>

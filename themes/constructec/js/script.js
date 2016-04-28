@@ -33,7 +33,7 @@ var j = jQuery.noConflict();
 		        320:{
 		            items:1
 		        },
-		      	1024:{
+		      	640:{
 		            items: 3
 		        },
 	    	}
@@ -71,6 +71,27 @@ var j = jQuery.noConflict();
 		j("#arrow-carousel-project--right").on('click',function(e){ 
 			carousel_projectos.trigger('next.owl.carousel' , [900] );
 		});
+
+		/*|----------------------------------------------------------------------|*/
+		/*|-----  CAROUSEL CLIENTES - SECCIONES COMUNES  ------|*/
+		/*|----------------------------------------------------------------------|*/		
+
+		var carousel_clientes = j("#carousel-clientes");
+
+		if( carousel_clientes.length ){ 
+			carousel_clientes.owlCarousel({
+				items          : 7,
+				lazyLoad       : false,
+				loop           : true,
+				nav            : false,
+				autoplay       : true,
+				responsiveClass: true,
+				mouseDrag      : false,
+				autoplayTimeout: 2500,
+				smartSpeed     : 1500,
+			});
+		}
+		
 
 
 

@@ -66,9 +66,9 @@
 					<h1 class="logo">
 						<a href="<?= site_url() ?>">
 							<?php if( !empty($options['logo']) ) : ?>
-								<img src="<?= $options['logo'] ?>" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-responsive center-block" />
+								<img src="<?= $options['logo'] ?>" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-fluid center-block" />
 							<?php else: ?>
-								<img src="<?= IMAGES ?>/logo.png" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-responsive center-block" />
+								<img src="<?= IMAGES ?>/logo.png" alt="<?= "-logo-" . bloginfo('name') ?>" class="img-fluid center-block" />
 							<?php endif; ?>
 						</a>
 					</h1><!-- /logo -->

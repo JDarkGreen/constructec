@@ -76,11 +76,36 @@ function create_post_type(){
 		'menu_icon'   => 'dashicons-schedule',
 	);
 
+	/*|>>>>>>>>>>>>>>>>>>>> CLIENTES  <<<<<<<<<<<<<<<<<<<<|*/
+	
+	$labels4 = array(
+		'name'               => __('Clientes'),
+		'singular_name'      => __('Cliente'),
+		'add_new'            => __('Nuevo Cliente'),
+		'add_new_item'       => __('Agregar nuevo Cliente'),
+		'edit_item'          => __('Editar Cliente'),
+		'view_item'          => __('Ver Cliente'),
+		'search_items'       => __('Buscar Clientes'),
+		'not_found'          => __('Cliente no encontrado'),
+		'not_found_in_trash' => __('Cliente no encontrado en la papelera'),
+	);
+
+	$args4 = array(
+		'labels'      => $labels4,
+		'has_archive' => true,
+		'public'      => true,
+		'hierachical' => false,
+		'supports'    => array('title','editor','excerpt','custom-fields','thumbnail','page-attributes'),
+		'taxonomies'  => array('post-tag','category'),
+		'menu_icon'   => 'dashicons-money',
+	);
+
 
 	/*|>>>>>>>>>>>>>>>>>>>> REGISTRAR  <<<<<<<<<<<<<<<<<<<<|*/
 	register_post_type( 'banner'   , $args  );
 	register_post_type( 'servicio' , $args2 );
 	register_post_type( 'works' , $args3 );
+	register_post_type( 'cliente' , $args4 );
 	
 	flush_rewrite_rules();
 }
