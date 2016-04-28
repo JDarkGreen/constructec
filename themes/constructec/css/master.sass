@@ -26,6 +26,20 @@ body,html
 /**-------------------------- KEYFRAMES  ---------------------------------------------**/
 /***************************************************************************************/
 
+//EXPAND
++keyframes( expand )
+	0% 
+		+scale( 1 ) 
+	100%
+		+scale( 1.3 )
+
+//CONTRACT
++keyframes( contract )
+	0% 
+		+scale( 1.5 ) 
+	100%
+		+scale( 1 )
+
 //PULSE
 +keyframes( pulse )
 	0%
@@ -38,6 +52,16 @@ body,html
 /***************************************************************************************/
 /**-------------------------- SECCIONES EN COMUN -------------------------------------**/
 /***************************************************************************************/
+
+
+/*°|| =================> EFECTOS Y  ANIMACION */
+.box-expand
+	animation: expand 10s ease 
+.box-contract
+	animation: contract 10s ease
+//variacion
+.box-contract--fast
+	animation: contract 900ms ease
 
 //Posicion relativa
 /*°|| =================> POSICION RELATIVA */
@@ -243,6 +267,7 @@ body,html
 	//contanedor wrapper
 	.carousel-inner
 		.carousel-item
+			overflow: hidden
 			//Informacion o caption del slider
 			.carousel-caption
 				font-family: 'Montserrat', sans-serif
@@ -261,6 +286,7 @@ body,html
 					letter-spacing: -2px
 					line-height   : 1em
 					margin        : 0 auto 
+					position      : relative
 	//Flechas del Carousel
 	.arrowCarouselHome
 		align-items    : center
