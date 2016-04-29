@@ -49,6 +49,17 @@ body,html
 	100%
 		left: -5px
 
+//LEFT TO RIGHT
++keyframes( left-to-right )
+	0%
+		+transform( scale(2) translateX( 0% ) )	
+	33%
+		+transform( scale(2) translateX( -15% ) )	
+	66%
+		+transform( scale(2) translateX( 15% ) )	
+	100% 
+		+transform( scale(2) translateX( 0% ) )
+
 /***************************************************************************************/
 /**-------------------------- SECCIONES EN COMUN -------------------------------------**/
 /***************************************************************************************/
@@ -113,7 +124,7 @@ body,html
 		left      : 0 
 		margin    : 3px auto 0 
 		position  : absolute
-		right     : 30px
+		right     : 60%
 
 //variacion a color blanco
 .sectionCommon__subtitle--white
@@ -310,6 +321,7 @@ body,html
 			+transition( all 500ms ease )
 
 			li 
+				display: block
 				a 
 					background: black
 					border    : none 
@@ -573,6 +585,9 @@ body,html
 
 //Articulo o contenido principal
 .pageServicio__article
+	//contenido 
+	.pageServicio__article__text
+		margin: 20px auto 
 	//flechas del carousel
 	.arrow-carousel-page-service
 		bottom : 0
@@ -585,6 +600,70 @@ body,html
 //Galería Carousel
 .pageServicio__gallery
 	margin: 36px auto 0
+
+/***************************************************************************************/
+/**------------------------------ PAGINA MANTENIMIENTO -------------------------------**/
+/***************************************************************************************/
+
+//section
+.pageMantenimiento
+	margin: 66px auto
+//contenido - texto
+.pageMantenimiento__content
+	margin: 35px auto 0
+//imagen 
+.pageMantenimiento__content__image
+	margin: 30px auto 0
+
+/***************************************************************************************/
+/**------------------------------ PAGINA BLOG -------------------------------**/
+/***************************************************************************************/
+
+//section
+.pageBlog
+	margin: 66px auto 
+//contenedor
+.pageBlog__content
+	border-right: 2px solid $gray_color
+	padding     : 0 25px 0 0
+//artículo
+.pageBlog__content__article
+	display        : inline-flex
+	justify-content: space-between
+	margin         : 9px auto
+	//imagen
+	figure 
+		overflow: hidden
+		width   : 49%
+		img 
+			position: relative
+		//hover
+		&:hover 
+			img 
+				animation: left-to-right 16s ease-in infinite
+	//texto
+	.pageBlog__content__article__text
+		text-align: justify
+		width     : 49%
+	//botón ver más
+	.btn__show-more-post
+		background     : $orange_constructec
+		color          : white 
+		display        : inline-block
+		font-size      : 13px 
+		line-height    : 1rem  
+		margin         : 8px auto 0 
+		padding        : 6px 15px 
+		text-decoration: none
+		+box-shadow( inset 0 0 0 0 $orange_constructec )
+		+transition( all 500ms ease )
+		//hover
+		&:hover 
+			+box-shadow( inset -100px 0 0 0 black )
+			color: $orange_constructec
+
+
+
 
 /***************************************************************************************/
 /**----------------------------    FOOTER  -------------------------------------------**/

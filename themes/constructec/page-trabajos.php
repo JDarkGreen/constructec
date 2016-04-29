@@ -1,14 +1,10 @@
-<?php /* Single Servicios Plantilla */ ?>
+<?php /* Template Name: Página Trabajos Realizados Plantilla */ ?>
 
 <!-- Global Post -->
 <?php 
 	global $post; 
 	$options = get_option('constructec_custom_settings'); 
-
-	//Conseguir el id de su pagina padre servicios
-	$parent_page  = get_page_by_title( 'Servicios' ); #var_dump($parent_page);
-	$banner       = $parent_page;
-	$banner_title = $post->post_title;
+	$banner  = $post;
 ?>
 
 <!-- Get Header -->
@@ -26,7 +22,7 @@
 				<aside class="pageServicio__projects">
 					<!-- Titulo -->
 					<h2 class="sectionCommon__subtitle sectionCommon__subtitle--orange text-uppercase">
-						<strong><?php _e( 'servicio' , LANG ); ?></strong>
+						<strong><?php _e( 'trabajos' , LANG ); ?></strong>
 					</h2>
 					<!-- Contenedor de proyectos y servicios -->
 					<?php  
@@ -35,40 +31,49 @@
 							'order'          => 'ASC',
 							'orderby'        => 'menu_order',
 							'post_status'    => 'publish',
-							'post_type'      => 'servicio',
+							'post_type'      => 'works',
 							'posts_per_page' => -1,
 						);
 						$query = new WP_Query( $args );
 
 						//control 
-						$post_slug = $post->post_name;
+						$i = 0;
 						if( $query->have_posts() ) :
 					?>
 					<ul class="pageServicio__projects__menu">
 						<?php while( $query->have_posts() ) : $query->the_post(); ?>
-							<!-- Conseguir el slug -->
-							<?php $current_slug = sanitize_title( get_the_title(), $fallback_title ); ?>
-							<li><a class="<?= $post_slug == $current_slug ? 'active' : '' ?> text-uppercase" href="<?php the_permalink(); ?>">
+							<li><a class="<?= $i == 0 ? 'active' : '' ?> text-uppercase" href="<?php the_permalink(); ?>">
 								<strong> <?= get_the_title(); ?></strong>
 							</a></li>
-						<?php  endwhile; ?>
+						<?php $i++; endwhile; ?>
 					</ul> <!-- /.pageServicio__projects__menu -->
 					<?php endif; wp_reset_postdata(); ?>
 				</aside> <!-- /.pageServicio__projects -->
 			</div> <!-- /.col-xs-4 -->
 			<div class="col-xs-8">
-				<!-- Conseguir el servicio actual  -->
+				<!-- Conseguir el primer servicio -->
+				<?php  
+					$args = array(
+						'order'          => 'ASC',
+						'orderby'        => 'menu_order',
+						'post_status'    => 'publish',
+						'post_type'      => 'works',
+						'posts_per_page' => -1,
+					);
+					$trabajos        = get_posts( $args ); 
+					$primer_servicio = $trabajos[0]; 					
+				?>
 				<article class="pageServicio__article">
 					<!-- Titulo -->
 					<h2 class="sectionCommon__subtitle text-uppercase">
-						<strong><?php _e( $post->post_title , LANG ); ?></strong>
+						<strong><?php _e( $primer_servicio->post_title , LANG ); ?></strong>
 					</h2>
 
 					<!-- Contenido -->
 					<div class="pageServicio__article__text">
-						<?= apply_filters('the_content', $post->post_content ); ?>
+						<?= apply_filters('the_content', $primer_servicio->post_content ); ?>
 					</div> <!-- /.pageServicio__article__text -->
-
+					
 					<section class="relative">
 
 						<!-- Imagenes Galeria -->
@@ -76,15 +81,15 @@
 							<?php  
 								//Obtener imagenes de la galería
 								$input_ids_img = -1;
-								$input_ids_img = get_post_meta($post->ID, 'imageurls_'.$post->ID , true);
+								$input_ids_img = get_post_meta($primer_servicio->ID, 'imageurls_'.$primer_servicio->ID , true);
 								$array_images  = explode(',', $input_ids_img );
-
+								
 								$args  = array(
 								'post_type'      => 'attachment',
 								'post__in'       => $array_images,
 								'posts_per_page' => -1,
 								);
-								$attachment = get_posts($args);	
+								$attachment = get_posts($args);		
 								
 								if( !empty($attachment) ) :
 								foreach( $attachment as $atta ) :				
@@ -112,7 +117,6 @@
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
 </section> <!-- /.pageServicio -->
-
 
 <!-- Incluir Banner de Servicios -->
 <?php include(locate_template('partials/banner-services.php')); ?>

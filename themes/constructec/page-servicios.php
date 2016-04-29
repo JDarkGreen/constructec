@@ -23,7 +23,7 @@
 				<aside class="pageServicio__projects">
 					<!-- Titulo -->
 					<h2 class="sectionCommon__subtitle sectionCommon__subtitle--orange text-uppercase">
-						<strong><?php _e( 'proyectos' , LANG ); ?></strong>
+						<strong><?php _e( 'servicios' , LANG ); ?></strong>
 					</h2>
 					<!-- Contenedor de proyectos y servicios -->
 					<?php  
@@ -69,6 +69,11 @@
 					<h2 class="sectionCommon__subtitle text-uppercase">
 						<strong><?php _e( $primer_servicio->post_title , LANG ); ?></strong>
 					</h2>
+
+					<!-- Contenido -->
+					<div class="pageServicio__article__text">
+						<?= apply_filters('the_content', $primer_servicio->post_content ); ?>
+					</div> <!-- /.pageServicio__article__text -->
 					
 					<section class="relative">
 

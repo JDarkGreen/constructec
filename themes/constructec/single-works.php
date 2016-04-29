@@ -1,4 +1,4 @@
-<?php /* Single Servicios Plantilla */ ?>
+<?php /* Single Works Plantilla */ ?>
 
 <!-- Global Post -->
 <?php 
@@ -6,7 +6,7 @@
 	$options = get_option('constructec_custom_settings'); 
 
 	//Conseguir el id de su pagina padre servicios
-	$parent_page  = get_page_by_title( 'Servicios' ); #var_dump($parent_page);
+	$parent_page  = get_page_by_title( 'Trabajos Realizados' ); #var_dump($parent_page);
 	$banner       = $parent_page;
 	$banner_title = $post->post_title;
 ?>
@@ -26,7 +26,7 @@
 				<aside class="pageServicio__projects">
 					<!-- Titulo -->
 					<h2 class="sectionCommon__subtitle sectionCommon__subtitle--orange text-uppercase">
-						<strong><?php _e( 'servicio' , LANG ); ?></strong>
+						<strong><?php _e( 'proyectos' , LANG ); ?></strong>
 					</h2>
 					<!-- Contenedor de proyectos y servicios -->
 					<?php  
@@ -35,7 +35,7 @@
 							'order'          => 'ASC',
 							'orderby'        => 'menu_order',
 							'post_status'    => 'publish',
-							'post_type'      => 'servicio',
+							'post_type'      => 'works',
 							'posts_per_page' => -1,
 						);
 						$query = new WP_Query( $args );
@@ -68,7 +68,7 @@
 					<div class="pageServicio__article__text">
 						<?= apply_filters('the_content', $post->post_content ); ?>
 					</div> <!-- /.pageServicio__article__text -->
-
+					
 					<section class="relative">
 
 						<!-- Imagenes Galeria -->
