@@ -177,6 +177,37 @@ var j = jQuery.noConflict();
 				dots           : true,
 			});
 		}
+
+		/*|----------------------------------------------------------------------|*/
+		/*|-----  CAROUSEL PAGINA SERVICIOS ------|*/
+		/*|----------------------------------------------------------------------|*/
+
+		var carousel_page_service = j(".js-carousel-gallery-service");
+
+		if( carousel_page_service.length && carousel_page_service.find('.item').length ){
+			carousel_page_service.owlCarousel({
+				items          : 1,
+				lazyLoad       : false,
+				loop           : true,
+				nav            : false,
+				autoplay       : true,
+				responsiveClass: true,
+				mouseDrag      : false,
+				autoplayTimeout: 2500,
+				smartSpeed     : 1500,
+				dots           : true,
+			});
+
+			//prev carousel
+			j("#arrow-carousel-page-service--left").on('click',function(e){ 
+				carousel_page_service.trigger('prev.owl.carousel' , [900] );
+			});
+			//next carousel
+			j("#arrow-carousel-page-service--right").on('click',function(e){ 
+				carousel_page_service.trigger('next.owl.carousel' , [900] );
+			});
+			
+		}
 		
 		
 

@@ -11,6 +11,7 @@
 
 <!-- Incluir banner de la página -->
 <?php  
+	$banner = $post;
 	include( locate_template("partials/banner-common-pages.php") );
 ?>
 

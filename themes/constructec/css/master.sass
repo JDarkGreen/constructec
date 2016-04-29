@@ -107,7 +107,7 @@ body,html
 	//before
 	&:before 
 		background: $orange_constructec
-		bottom    : 0 
+		bottom    : -4px 
 		content   : ''
 		height    : 2px 
 		left      : 0 
@@ -120,6 +120,10 @@ body,html
 	color: white 
 	&:before 
 		background: white 
+
+//variacion a color naranja
+.sectionCommon__subtitle--orange
+	color: $orange_constructec
 
 /*°|| ================>> FLECHAS DE CAROUSEL */
 .arrow-carousel-common
@@ -258,7 +262,8 @@ body,html
 	position: relative
 	z-index : 99999
 	ul
-		margin: 0 auto
+		margin : 0 auto
+		padding: 0 
 		//todos los links
 		a 
 			background     : $orange_constructec
@@ -273,7 +278,8 @@ body,html
 		&.main-menu
 			text-align: center 
 			li 
-				display: inline-block 
+				display : inline-block 
+				position: relative
 				a 
 					border-left: 1px solid white
 				//primer hijo de la lista sin borde
@@ -281,9 +287,41 @@ body,html
 					a 
 						border: none
 				//active u hover
-				&.current-menu-item, &.current_page_item ,&:hover 
+				&.current-menu-item, &.current_page_item ,&:hover,&.current-menu-ancestor,&.current-menu-parent
 					a 
 						color: white
+				//only hover
+				&:hover 
+					.sub-menu
+						top       : 100%
+						visibility: visible
+						+opacity( 1 )
+
+		//submenu
+		&.sub-menu 
+			border-bottom: 4px solid $orange_constructec
+			border-top   : 4px solid $orange_constructec
+			left         : 0 
+			margin       : 10px auto
+			position     : absolute
+			top          : 140%
+			visibility   : hidden
+			+opacity( 0 )
+			+transition( all 500ms ease )
+
+			li 
+				a 
+					background: black
+					border    : none 
+					color     : white 
+					font-size : 15px 
+					margin    : 0 auto 
+					padding   : 7px 14px 
+				//hover
+				&.current-menu-item, &.current_page_item ,&:hover 
+					a 
+						background: white 
+						color     : black 
 
 
 /***************************************************************************************/
@@ -502,6 +540,51 @@ body,html
 	//articulos 
 	.article-box-information
 		text-align: justify
+
+/***************************************************************************************/
+/**----------------------------------- PAGINA SERVICIO -------------------------------**/
+/***************************************************************************************/
+
+//seccion
+.pageServicio
+	margin: 72px auto 30px
+//sidebar de lista de proyectos
+.pageServicio__projects
+//menu lista de proyectos
+.pageServicio__projects__menu
+	list-style-type: none 
+	margin         : 12px auto 0 
+	padding        : 0 
+	li 
+		a 
+			background     : $gray_color
+			color          : $gray_text
+			display        : block 
+			line-height    : 1em 
+			margin         : 4px auto 
+			padding        : 9px 17px 
+			text-decoration: none 
+			+transition( all 800ms ease  )
+			+box-shadow( inset 0rem 0 0 0 transparent )
+			//activo u hover
+			&.active,&:hover 
+				color     : white 
+				+box-shadow( inset 500px 0 0 0 $orange_constructec )
+
+//Articulo o contenido principal
+.pageServicio__article
+	//flechas del carousel
+	.arrow-carousel-page-service
+		bottom : 0
+		right  : 0
+		z-index: 999
+	//flecha izquierda
+	.arrow-carousel-page-service--left
+		right: 40px
+
+//Galería Carousel
+.pageServicio__gallery
+	margin: 36px auto 0
 
 /***************************************************************************************/
 /**----------------------------    FOOTER  -------------------------------------------**/
