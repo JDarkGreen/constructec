@@ -662,8 +662,45 @@ body,html
 			+box-shadow( inset -100px 0 0 0 black )
 			color: $orange_constructec
 
+/***************************************************************************************/
+/**----------------------------  PAGINA GALERIA --------------------------------------**/
+/***************************************************************************************/
 
-
+.pageGallery 
+	margin: 94px auto 
+//item
+.pageGallery__item
+	margin  : 0 auto 27px
+	overflow: hidden
+	//enlace 
+	a 
+		//imagen
+		img 
+			-webkit-backface-visibility: hidden
+			-moz-backface-visibility   : hidden
+			backface-visibility        : hidden
+			+transform( translateZ(0) scale( 1.0 ) )
+			+transition( all 500ms ease )
+		//titulo
+		.pageGallery__item__title
+			+opacity( 0 )
+			+transition( all 500ms ease )
+			align-items: center
+			background : rgba( 0,0,0,.5)
+			bottom     : 0
+			color      : white 
+			cursor     : pointer 
+			font-size  : 22px
+			left       : 0
+			position   : absolute
+			right      : 0
+			top        : 0
+		//hover 
+		&:hover 
+			img 
+				+scale( 1.3 )
+			.pageGallery__item__title
+				+opacity( 1 )
 
 /***************************************************************************************/
 /**----------------------------    FOOTER  -------------------------------------------**/

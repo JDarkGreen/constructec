@@ -20,5 +20,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import url("css/bootstrap.min.css"); 
 /* owl carousel */
 @import url("css/owl.carousel.css"); 
+/* fancybox */
+@import url("css/fancybox/jquery.fancybox.css"); 
 /* archivo master */
 @import url("css/master.css");

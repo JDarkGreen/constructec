@@ -16,9 +16,9 @@
 ?>
 
 <!-- Contenido Principal galeria de imagenes -->
-<section class="pageImagenes">
+<section class="pageGallery">
 	<div class="container">
-		<section class="pageImagenes__content">
+		<section class="pageGallery__content">
 			<div class="row">
 				<!-- Imagenes -->
 				<?php  
@@ -37,18 +37,23 @@
 				?>
 					<?php if( has_post_thumbnail() ) : ?>
 					<div class="col-xs-12 col-sm-4">
-						<article class="pageImagenes__content__item">
-							<a href="#">
+						<article class="pageGallery__item">
+							<a class="js-gallery-item relative center-block" href="<?= the_post_thumbnail_url('full'); ?>" title="<?= get_the_title(); ?>" rel="group">
 								<?php the_post_thumbnail('full',array('class'=>'img-fluid') ); ?>
-							</a>
-						</article><!-- /.pageImagenes__content__item -->	
+								<!-- Span Titulo fondo oscuro -->
+								<span class="pageGallery__item__title container-flex container-flex-center text-uppercase">
+									<strong><?php _e( get_the_title() , LANG ); ?></strong>
+								</span>
+							</a> <!-- /.js-gallery-item relative -->
+							
+						</article><!-- /.pageGallery__item -->	
 					</div><!-- /.col-xs-12 col-sm-4 -->
 					<?php endif; ?>
 				<?php endwhile; endif; wp_reset_postdata(); ?>
 			</div> <!-- /.row -->
 		</section>
 	</div> <!-- /.container -->
-</section><!-- /. pageImagenes-->
+</section><!-- /. pageGallery-->
 
 <!-- Incluir Banner de Servicios -->
 <?php include(locate_template('partials/banner-services.php')); ?>

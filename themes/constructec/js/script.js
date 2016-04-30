@@ -208,7 +208,15 @@ var j = jQuery.noConflict();
 			});
 			
 		}
-		
+
+		/*|-------------------------------------------------------------|*/
+		/*|-----  FANCYBOX GALERIA DE IMAGENES  ------|*/
+		/*|--------------------------------------------------------------|*/
+		j(".js-gallery-item").fancybox({
+			openEffect : 'elastic',
+			closeEffect: 'elastic',
+		});
+
 		
 
 
