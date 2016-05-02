@@ -6,11 +6,8 @@
 
 function load_custom_scripts()
 {
-	wp_deregister_script('jquery');
-  wp_register_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js', false, '1.11.2');
-  wp_enqueue_script('jquery');
 
-	//jsCarousellite /
+	//jsCarousellite 
 	wp_enqueue_script('jscarousel', THEMEROOT . '/js/jquery.jcarousellite.min.js', array('jquery'), false , true);
 
 	//owl carousel /
@@ -24,6 +21,10 @@ function load_custom_scripts()
 
 	//cargar fancybox
 	wp_enqueue_script('fancybox', THEMEROOT . '/js/jquery.fancybox.pack.js', array('jquery'), '2.1.5', true);
+
+	//google maps
+	wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCNMUy9phyQwIbQgX3VujkkoV26-LxjbG0');
+  	wp_enqueue_script('google-jsapi','https://www.google.com/jsapi'); 
 
 	//script
 	wp_enqueue_script('custom_script', THEMEROOT . '/js/script.js', array('jquery'), false, true);
