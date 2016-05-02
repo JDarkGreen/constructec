@@ -87,10 +87,18 @@
 								$attachment = get_posts($args);	
 								
 								if( !empty($attachment) ) :
-								foreach( $attachment as $atta ) :				
+								foreach( $attachment as $atta ) :
+
+								/* Datos de la imgen */
+								$contenido = $atta->post_content;					
 							?>
 								<div class="item">
 									<img src="<?= $atta->guid; ?>" alt="<?= $atta->post_title; ?>" class="img-fluid" />
+									
+									<?php if( !empty($contenido) ) : ?>
+										<p class="item__content text-uppercase"><?= $contenido; ?></p>
+									<?php endif; ?>
+
 								</div><!-- /.item -->
 							<?php endforeach; else: ?>
 								<p><?php _e( 'No imágenes para mostrar' , LANG ); ?></p>

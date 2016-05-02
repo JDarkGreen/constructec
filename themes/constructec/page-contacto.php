@@ -154,13 +154,17 @@
 	        content: <?= "'" . $options['contact_address'] . "'" ?>
 	      });
 
+	      //icono
+	      var icono = "<?= IMAGES ?>/icon/contacto_icono_mapa.jpg";
+
 	      //crear marcador
 	      marker = new google.maps.Marker({
 	        map      : map,
 	        draggable: false,
 	        animation: google.maps.Animation.DROP,
 	        position : {lat: lat, lng: lng},
-	        title    : "<?php _e(bloginfo('name'),'damol-framework') ?>"
+	        title    : "<?php _e(bloginfo('name'),'damol-framework') ?>",
+	        icon     : icono
 	      });
 	      //marker.addListener('click', toggleBounce);
 	      marker.addListener('click', function() {

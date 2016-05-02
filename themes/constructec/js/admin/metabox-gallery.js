@@ -35,6 +35,36 @@ var j = jQuery.noConflict();
         frame.open();
     });
 
+
+    //Actualizar imagen
+    j(".js-update-image").on('click',function(e){
+        e.preventDefault(); //arreglar la customizacion
+
+        var frame; 
+        //id de post 
+        var data_image = j(this).attr('data-id-img');
+        console.log( data_image );
+
+        // If the media frame already exists, reopen it.
+        if ( frame ) { frame.open(); return; }
+
+        // Create a new media frame
+        frame = wp.media({
+            title   : 'Agrega tu imagen aquí',
+            multiple:  false, // set to false if you want only one image
+            button  : { text : 'Usa esta Imagen' },
+        });
+
+        frame.on('open', function(){
+            var selection = frame.state().get('selection');
+            var selected  = data_image; // the id of the image
+            if (selected) { selection.add(wp.media.attachment(selected)); }
+        });
+
+        frame.open(); 
+
+    });
+
     //Eliminar una imagen
     j(".js-delete-image").on('click',function(e){
         e.preventDefault();

@@ -31,7 +31,7 @@ function create_post_type(){
 	/*|>>>>>>>>>>>>>>>>>>>> SERVICIOS  <<<<<<<<<<<<<<<<<<<<|*/
 	
 	$labels2 = array(
-		'name'               => __('Servicio'),
+		'name'               => __('Servicios'),
 		'singular_name'      => __('Servicio'),
 		'add_new'            => __('Nuevo Servicio'),
 		'add_new_item'       => __('Agregar nuevo Servicio'),

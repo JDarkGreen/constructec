@@ -590,7 +590,7 @@ body,html
 		margin: 20px auto 
 	//flechas del carousel
 	.arrow-carousel-page-service
-		bottom : 0
+		bottom : 44px
 		right  : 0
 		z-index: 999
 	//flecha izquierda
@@ -600,6 +600,14 @@ body,html
 //Galería Carousel
 .pageServicio__gallery
 	margin: 36px auto 0
+	//parrafo
+	.item__content
+		background: black
+		bottom    : 0
+		color     : white
+		margin    : 10px auto 0
+		padding   : 5px 10px
+		z-index   : 999999
 
 /***************************************************************************************/
 /**------------------------------ PAGINA MANTENIMIENTO -------------------------------**/
@@ -661,6 +669,37 @@ body,html
 		&:hover 
 			+box-shadow( inset -100px 0 0 0 black )
 			color: $orange_constructec
+
+//PAGINA DE ARTICULO - SINGLE
+.pageBlog__article
+	margin: 66px auto
+//imagen del artículo
+.pageArticle__image
+	border: 3px solid black
+	margin: 15px auto 20px
+//sidebar de post
+.pageArticle__sidebar__categories
+	//menu de categorias 
+	.menu-categories
+		list-style-type: none
+		margin         : 15px auto 30px
+		padding        : 0 
+		li 
+			a 
+				background     : black
+				border         : 2px solid transparent 
+				color          : white 		
+				display        : block
+				margin         : 0 auto 5px 
+				padding        : 5px 15px 
+				text-decoration: none 
+				+transition( border 400ms ease , color 400ms ease , box-shadow 300ms ease  )
+				+box-shadow( inset 0 0 0 0 black )
+				//hover 
+				&.active, &:hover 
+					+box-shadow( inset 400px 0 0 0 $orange_constructec )
+					color : black
+					border: 2px solid black 
 
 /***************************************************************************************/
 /**----------------------------  PAGINA GALERIA --------------------------------------**/
@@ -748,6 +787,11 @@ body,html
 		width  : 100%
 	textarea
 		height: 110px
+
+//mapa
+#canvas-map
+	height: 346px 
+	width : 100%
 
 	
 /***************************************************************************************/

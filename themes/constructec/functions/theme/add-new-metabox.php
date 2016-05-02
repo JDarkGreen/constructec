@@ -101,8 +101,11 @@ function attached_images_meta_box($post){
 
 		<figure style="width: 25%;height: 120px; margin: 0 10px 20px; display: inline-block; vertical-align: top; position: relative;">
 			<a href="#" class="js-delete-image" data-id-post="<?= $post->ID; ?>" data-id-img="<?= $atta->ID ?>" style="border-radius: 50%; width: 20px;height: 20px; border: 2px solid red; color: red; position: absolute; top: -10px; right: -8px; text-decoration: none; text-align: center; background: black; font-weight: 700;">X</a>
-
+			
+			<!-- Abrir frame del contenedor de imagen -->
+			<a href="#" class="js-update-image" data-id-post="<?= $post->ID; ?>" data-id-img="<?= $atta->ID ?>" style="display: block;">
 			<img src="<?= $atta->guid; ?>" alt="<?= $atta->post_title; ?>" class="" style="width: 100%; height: 100%; margin: 0 auto;" />
+			</a>
 		</figure>
 
 	<?php 
