@@ -3,13 +3,7 @@ var j = jQuery.noConflict();
 /* 
 * Array Unique: eliminar valores duplicados de un array en Javascript
 */
-//Array.prototype.unique=function(a){
-//  return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
-//});
 
-/* Para usarlo */
-//var myArr = [ 1, 2, 3, 'foo', 'bar', 'Hello World', 2, 3, 'bar', 1, 4, 5];
-//console.log( myArr.unique() ); // ["foo", "Hello World", 2, 3, "bar", 1, 4, 5]
 
 /* Funcion del documento */
 (function($){
