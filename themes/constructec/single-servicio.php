@@ -102,6 +102,8 @@
 									
 									<?php if( !empty($contenido) ) : ?>
 										<p class="item__content text-uppercase"><?= $contenido; ?></p>
+									<?php else: ?>
+										<p class="item__content text-uppercase"><?= $post->post_title; ?></p>
 									<?php endif; ?>
 
 								</div><!-- /.item -->

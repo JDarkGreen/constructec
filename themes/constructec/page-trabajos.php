@@ -108,8 +108,10 @@
 
 									<?php if( !empty($contenido) ) : ?>
 										<p class="item__content text-uppercase"><?= $contenido; ?></p>
+									<?php else: ?>
+										<p class="item__content text-uppercase"><?= $primer_servicio->post_title; ?></p>
 									<?php endif; ?>
-									
+
 								</div><!-- /.item -->
 							<?php endforeach; else: ?>
 								<p><?php _e( 'No imágenes para mostrar' , LANG ); ?></p>

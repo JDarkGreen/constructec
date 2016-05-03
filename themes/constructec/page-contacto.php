@@ -82,22 +82,28 @@
 					<strong><?php _e( 'nuestro formulario' , LANG ); ?></strong>
 					</h2>
 					<!-- Formulario -->
-					<form action="" class="">
+					<form id="form-contacto" action="" class="" method="POST">
 						<div class="pageContacto__form__group">
 							<label for="input_name" class="sr-only"></label>
-							<input type="text" name="input_name" placeholder="<?php _e( 'Nombres y Apellidos', LANG ); ?>"/>
+							<input type="text" name="input_name" placeholder="<?php _e( 'Nombres y Apellidos', LANG ); ?>" required />
 						</div> <!-- /.pageContacto__form__group -->
 						<div class="pageContacto__form__group">
 							<label for="input_address" class="sr-only"></label>
-							<input type="text" name="input_address" placeholder="<?php _e( 'Dirección', LANG ); ?>"/>
+							<input type="text" name="input_address" placeholder="<?php _e( 'Dirección', LANG ); ?>" required />
 						</div> <!-- /.pageContacto__form__group -->
 						<div class="pageContacto__form__group">
 							<label for="input_email" class="sr-only"></label>
-							<input type="text" name="input_email" placeholder="<?php _e( 'E-mail', LANG ); ?>"/>
+							<input type="email" name="input_email" placeholder="<?php _e( 'E-mail', LANG ); ?>" data-parsley-trigger="change" required="" data-parsley-type-message="Escribe un email válido"/>
 						</div> <!-- /.pageContacto__form__group -->
 						<div class="pageContacto__form__group">
 							<label for="input_email" class="sr-only"></label>
-							<textarea name="input_consulta" id="" placeholder="<?php _e( 'Consulta', LANG ); ?>"></textarea>
+							<textarea name="input_consulta" id="" placeholder="<?php _e( 'Consulta', LANG ); ?>" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Necesitas más de 20 caracteres" data-parsley-validation-threshold="10"></textarea>
+						</div> <!-- /.pageContacto__form__group -->
+						<!-- Boton de enviar el formulario  -->
+						<div class="pageContacto__form__group">
+							<button id="send-form" class="btn__send-form text-uppercase">
+								<?php _e( 'enviar' , LANG ); ?>
+							</button> <!-- /.btn__send-form -->
 						</div> <!-- /.pageContacto__form__group -->
 					</form> <!-- /. -->
 				</section> <!-- /.pageContacto__form -->
