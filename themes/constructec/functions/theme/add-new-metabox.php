@@ -81,13 +81,19 @@ function attached_images_meta() {
 
 function attached_images_meta_box($post){
 	
-	$input_ids_img = -1;
-	$input_ids_img = get_post_meta($post->ID, 'imageurls_'.$post->ID , true);
-	$array_images  = explode(',', $input_ids_img );
-	
+	$input_ids_img  = -1;
+	$input_ids_img  = get_post_meta($post->ID, 'imageurls_'.$post->ID , true);
+	//convertir en arreglo
+	$input_ids_img  = explode(',', $input_ids_img );
+	//eliminar valores duplicados - sigue siendo array
+	$input_ids_img  = array_unique( $input_ids_img );
+	//colocar en una sola cadena para el input
+	$string_ids_img = "";
+	$string_ids_img = implode(',', $input_ids_img);
+
 	$args  = array(
 		'post_type'      => 'attachment',
-		'post__in'       => $array_images,
+		'post__in'       => $input_ids_img,
 		'posts_per_page' => -1,
 	);
 	$attachment = get_posts($args);
@@ -103,7 +109,7 @@ function attached_images_meta_box($post){
 			<a href="#" class="js-delete-image" data-id-post="<?= $post->ID; ?>" data-id-img="<?= $atta->ID ?>" style="border-radius: 50%; width: 20px;height: 20px; border: 2px solid red; color: red; position: absolute; top: -10px; right: -8px; text-decoration: none; text-align: center; background: black; font-weight: 700;">X</a>
 			
 			<!-- Abrir frame del contenedor de imagen -->
-			<a href="#" class="js-update-image" data-id-post="<?= $post->ID; ?>" data-id-img="<?= $atta->ID ?>" style="display: block;">
+			<a href="#" class="js-update-image" data-id-post="<?= $post->ID; ?>" data-id-img="<?= $atta->ID ?>" style="display: block; height: 100%; width: 100%;">
 			<img src="<?= $atta->guid; ?>" alt="<?= $atta->post_title; ?>" class="" style="width: 100%; height: 100%; margin: 0 auto;" />
 			</a>
 		</figure>
@@ -117,7 +123,7 @@ function attached_images_meta_box($post){
 	/*----------------------------------------------------------------------------------------------*/
 	echo "<div style='display:block; margin: 0 0 10px;'></div>";
 	/*----------------------------------------------------------------------------------------------*/
-	echo '<input id="imageurls_'.$post->ID.'" type="hidden" name="imageurls_'.$post->ID.'" value="'.$input_ids_img. '" />';
+	echo '<input id="imageurls_'.$post->ID.'" type="hidden" name="imageurls_'.$post->ID.'" value="'.$string_ids_img. '" />';
 
     echo '<a id="add_image_btn" data-id-post="'.$post->ID.'" href="#" class="button button-primary button-large" data-editor="content">Agregar Imagen</a>';
     echo "<p class='description'>Después de Agregar/Eliminar elemento dar click en actualizar<p>";
@@ -136,7 +142,7 @@ add_action('save_post', 'attached_images_save_postdata');
 /*|-------------- METABOX DE VIDEO -----------------|*/
 /*|-------------------------------------------------------------------------|*/
 
-$arr_postype_video = array('galeria-videos'); 
+$arr_postype_video = array('','galeria-videos'); 
 
 add_action( 'add_meta_boxes', 'cd_meta_box_url_video_add' );
 

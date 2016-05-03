@@ -75,16 +75,21 @@
 						<section id="carousel-gallery-service" class="js-carousel-gallery-service pageServicio__gallery">
 							<?php  
 								//Obtener imagenes de la galería
-								$input_ids_img = -1;
-								$input_ids_img = get_post_meta($post->ID, 'imageurls_'.$post->ID , true);
-								$array_images  = explode(',', $input_ids_img );
+								$input_ids_img  = get_post_meta( $post->ID, 'imageurls_'.$post->ID , true);
+								//convertir en arreglo
+								$input_ids_img  = explode(',', $input_ids_img );
+								//eliminar valores duplicados - sigue siendo array
+								$input_ids_img  = array_unique( $input_ids_img );
+								//colocar en una sola cadena para el input
+								$string_ids_img = "";
+								$string_ids_img = implode(',', $input_ids_img);
 
 								$args  = array(
-								'post_type'      => 'attachment',
-								'post__in'       => $array_images,
-								'posts_per_page' => -1,
+									'post_type'      => 'attachment',
+									'post__in'       => $input_ids_img,
+									'posts_per_page' => -1,
 								);
-								$attachment = get_posts($args);	
+								$attachment = get_posts($args);
 								
 								if( !empty($attachment) ) :
 								foreach( $attachment as $atta ) :

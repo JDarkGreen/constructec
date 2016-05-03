@@ -1,5 +1,17 @@
 var j = jQuery.noConflict();
 
+/* 
+* Array Unique: eliminar valores duplicados de un array en Javascript
+*/
+//Array.prototype.unique=function(a){
+//  return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
+//});
+
+/* Para usarlo */
+//var myArr = [ 1, 2, 3, 'foo', 'bar', 'Hello World', 2, 3, 'bar', 1, 4, 5];
+//console.log( myArr.unique() ); // ["foo", "Hello World", 2, 3, "bar", 1, 4, 5]
+
+/* Funcion del documento */
 (function($){
 
     j('#add_image_btn').on('click',function(e) {
@@ -40,10 +52,13 @@ var j = jQuery.noConflict();
     j(".js-update-image").on('click',function(e){
         e.preventDefault(); //arreglar la customizacion
 
+        var this_link = j(this);
+
         var frame; 
-        //id de post 
-        var data_image = j(this).attr('data-id-img');
-        console.log( data_image );
+        //id de post
+        var data_id_post = this_link.attr('data-id-post');
+        //id image
+        var data_image   = this_link.attr('data-id-img'); //console.log( data_image );
 
         // If the media frame already exists, reopen it.
         if ( frame ) { frame.open(); return; }
@@ -55,11 +70,35 @@ var j = jQuery.noConflict();
             button  : { text : 'Usa esta Imagen' },
         });
 
+        //al abrir el frame
         frame.on('open', function(){
             var selection = frame.state().get('selection');
             var selected  = data_image; // the id of the image
             if (selected) { selection.add(wp.media.attachment(selected)); }
         });
+        //al cerrar el frame
+        frame.on('select', function() {
+            attachment =  frame.state().get('selection').first().toJSON(); //console.log(attachment );
+
+            //valor de id de imagen actual cambiada o seleccionada
+            var current_id_img = attachment.id;
+            //actualizar valor de la imagen en el atributo data img
+            this_link.attr( 'data-id-img', current_id_img );
+
+            //actualizar nuevos valores en el input oculto de actual post
+            var array_valores = j("#imageurls_"+data_id_post).val();
+            //buscar id actual eliminarlo y reemplazarlo por la seleccion
+            array_valores = array_valores.replace( data_image ,  current_id_img );
+            //actualizar
+            j("#imageurls_"+data_id_post).val( array_valores ); 
+
+
+            //mostrar imagen temporal
+            this_link.html("");
+            this_link.append("<img src="+attachment.url+" alt="+attachment.name+" class='' style='max-width: 100%; width: 100%; height: 100%; margin: 0 auto;' />");
+        });
+
+
 
         frame.open(); 
 
@@ -74,16 +113,19 @@ var j = jQuery.noConflict();
 
         //id de imagen 
         var data_id_img  = j(this).attr('data-id-img');
-        console.log(data_id_img);
+        //console.log(data_id_img);
 
         //ocultar imagen display none
         j(this).parent('figure').css('display','none');
 
         var input_data = j("#imageurls_"+data_id_post);
-        var imageArray = input_data.val().split(",");
+        //var imageArray = input_data.val().split(",");
+        var valores_array = input_data.val();
 
         //buscar y eliminar elemento id de imagen  del arreglo
-        var i = imageArray.indexOf(data_id_img);
+        valores_array = valores_array.replace( data_id_img , '-1' );
+        input_data.val( valores_array );
+        /*var i = imageArray.indexOf(data_id_img);
         if(i != -1 ) { 
             imageArray.splice( i , 1); 
 
@@ -92,9 +134,9 @@ var j = jQuery.noConflict();
             }else{
                 input_data.val(imageArray.join(","));
             }
-        }
+        }*/
 
-        console.log(imageArray);
+        //console.log(imageArray);
 
     });
 
