@@ -16,19 +16,6 @@ var j = jQuery.noConflict();
 
 		//eventos
 		carousel_home.on('slid.bs.carousel', function ( e ) {
-			if( i > 2 ){ i = 1 };
-			
-			var current_item = j(this).find('.active');
-  			//imagen actual
-  			var image_carousel = current_item.find('img');
-  			//animacion de la imagen
-  			if( i == 1 ){
-  				image_carousel.addClass('box-expand');
-  			}else{
-  				image_carousel.addClass('box-contract');
-  			}
-
-  			i++;
 
   			//animacion de las contenidos
   			var title = current_item.find('h3');
@@ -94,6 +81,7 @@ var j = jQuery.noConflict();
 			mouseDrag      : false,
 			autoplayTimeout: 2500,
 			fluidSpeed     : 2000,
+			smartSpeed     : 2000,
 			responsive:{
 		        320:{
 		            items:1
@@ -166,14 +154,13 @@ var j = jQuery.noConflict();
 		if( carousel_empresa.length ){
 			carousel_empresa.owlCarousel({
 				items          : 1,
-				lazyLoad       : false,
 				loop           : true,
 				nav            : false,
 				autoplay       : true,
 				responsiveClass: true,
 				mouseDrag      : false,
-				autoplayTimeout: 2500,
-				smartSpeed     : 1500,
+				autoplayTimeout: 2200,
+				smartSpeed     : 900,
 				dots           : true,
 			});
 		}

@@ -13,6 +13,13 @@ define('LANG', 'sbg-framework');
 
 include_once("functions/theme/scripts.php");
 
+/******************************************************************************************/
+/* Marcar la navegacion del padre activo cuanto se encuentra en un single post type */
+/******************************************************************************************/
+
+include_once("functions/theme/nav-active-parent.php");
+
+
 /***********************************************************************************************/
 /* Agregar formatos al tema  */
 /***********************************************************************************************/
