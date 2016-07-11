@@ -63,12 +63,8 @@
 					<h2 class="sectionCommon__subtitle text-uppercase">
 						<strong><?php _e( $post->post_title , LANG ); ?></strong>
 					</h2>
-
-					<!-- Contenido -->
-					<div class="pageServicio__article__text">
-						<?= apply_filters('the_content', $post->post_content ); ?>
-					</div> <!-- /.pageServicio__article__text -->
-
+					
+					<!-- Carousel De Servicios  -->
 					<section class="relative">
 
 						<!-- Imagenes Galeria -->
@@ -100,11 +96,11 @@
 								<div class="item">
 									<img src="<?= $atta->guid; ?>" alt="<?= $atta->post_title; ?>" class="img-fluid" />
 									
-									<?php if( !empty($contenido) ) : ?>
+									<?php /*if( !empty($contenido) ) : ?>
 										<p class="item__content text-uppercase"><?= $contenido; ?></p>
 									<?php else: ?>
 										<p class="item__content text-uppercase"><?= $post->post_title; ?></p>
-									<?php endif; ?>
+									<?php endif; */ ?>
 
 								</div><!-- /.item -->
 							<?php endforeach; else: ?>
@@ -121,6 +117,11 @@
 						</a><!-- /.arrow-carousel-page-service--right -->
 
 					</section> <!-- /.relative -->
+
+					<!-- Contenido -->
+					<div class="pageServicio__article__text">
+						<?= apply_filters('the_content', $post->post_content ); ?>
+					</div> <!-- /.pageServicio__article__text -->
 
 				</article> <!-- /.pageServicio__article -->
 			</div> <!-- /.col-xs-8 -->
