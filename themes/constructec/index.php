@@ -79,7 +79,10 @@
 			<div class="col-xs-8">
 				<!-- Titulo -->
 				<h2 class="sectionCommon__subtitle sectionCommon__subtitle--white text-uppercase">
-					<strong><?php _e( 'bienvenida' , LANG ); ?></strong>
+					<?php 
+						$title_nosotros = isset($options['title_widget_nosotros']) && !empty($options['title_widget_nosotros']) ? $options['title_widget_nosotros'] : "bienvenida";
+					?>
+					<strong><?php _e( $title_nosotros , LANG ); ?></strong>
 				</h2>
 				<!-- Texto -->
 				<?php $welcome_text = $options['widget_nosotros']; if( !empty($welcome_text) ) : ?>

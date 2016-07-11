@@ -219,6 +219,19 @@ function constructec_customize_register($wp_customize) {
 		'priority' => 40
 	));
 	
+	//título de widget
+	$wp_customize->add_setting('constructec_custom_settings[title_widget_nosotros]', array(
+		'default' => '',
+		'type' => 'option'
+	));
+	
+	$wp_customize->add_control('constructec_custom_settings[title_widget_nosotros]', array(
+		'label'    => __('Escribe TÍTULO sección nosotros - PORTADA', 'constructec-framework'),
+		'section'  => 'constructec_widget_nosotros',
+		'settings' => 'constructec_custom_settings[title_widget_nosotros]',
+		'type'     => 'text'
+	));	
+
 	//textarea
 	$wp_customize->add_setting('constructec_custom_settings[widget_nosotros]', array(
 		'default' => '',
