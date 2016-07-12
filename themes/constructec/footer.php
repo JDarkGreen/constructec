@@ -96,7 +96,8 @@
 
 		<!-- Seccion Desarrollo -->
 		<section class="mainFooter__developer text-xs-center">
-			<?php _e('Constructec ' . "&copy;" . " " . date('Y') , LANG ); ?>
+			<a href="http://www.construtec.com.pe" > www.construtec.com.pe </a>
+			<?php _e("&copy;" . " " . date('Y') , LANG ); ?>
 		</section> <!-- /.mainFooter__developer -->
 	</footer><!-- /.mainFooter -->
 
