@@ -82,7 +82,7 @@
 						</div> <!-- /.col-xs-12 col-md-3 -->
 
 						<!-- Cerrar Fila -->
-						<?php if( ($control_row == 3) || ($control_row >= 7 && ($control_row-7) % 2 == 0  ) ) : ?> </div><!-- /end row --> <?php endif; ?>
+						<?php if( ($control_row == 3) || ($control_row >= 7 && ($control_row-7) % 4 == 0  ) ) : ?> </div><!-- /end row --> <?php endif; ?>
 
 					<?php $control_row++; endforeach; else: ?>
 						<p><?php _e( 'No imágenes para mostrar' , LANG ); ?></p>
