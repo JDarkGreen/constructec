@@ -96,15 +96,15 @@
 
 		<!-- Seccion Desarrollo -->
 		<section class="mainFooter__developer text-xs-center">
-			<a href="http://www.construtec.com.pe" > www.construtec.com.pe </a>
-			<?php _e("&copy;" . " " . date('Y') , LANG ); ?>
-			
-			<!-- Limpiar floats --> <div class="clearfix"></div>
-
-			<!-- Desarrollado por IngenioArt and JDarkgreen -->
 			<section class="container">
+				<a href="http://www.construtec.com.pe" > www.construtec.com.pe </a>
+				<?php _e("&copy;" . " " . date('Y') , LANG ); ?>
+		
+
+				<!-- Desarrollado por IngenioArt and JDarkgreen -->
 				<p class="text-developer pull-xs-right">Desarrollado por: <a href="http://ingenioart.com/" target="_blank">INGENIOART</a></p>
-			</section>
+			
+			</section> <!-- /.container -->
 
 		</section> <!-- /.mainFooter__developer -->
 	</footer><!-- /.mainFooter -->
