@@ -52,7 +52,7 @@
 								<strong><?php _e( get_the_title() , LANG ); ?></strong>
 							</h2><!-- /.sectionCommon__subtitle --> <br/>
 							<!-- Contenido -->
-							<?= wp_trim_words( get_the_content() , 30 , '...' ) . "<br/>"; ?>
+							<?= wp_trim_words( get_the_content() , 22 , '...' ) . "<br/>"; ?>
 							<!-- Botón ver más -->
 							<a href="<?php the_permalink() ?>" class="btn__show-more-post text-uppercase">
 								<?php _e('leer más' , LANG ); ?>
