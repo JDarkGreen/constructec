@@ -645,11 +645,11 @@ body,html
 .pageBlog__content__article
 	display        : flex
 	justify-content: space-between
-	margin         : 9px auto
+	margin         : 0 auto 30px
 	//imagen
 	figure 
 		overflow: hidden
-		width   : 49%
+		width   : 33%
 		img 
 			+scale( 1 )
 			+transition( all 500ms cubic-bezier( 0 , 1 ,1 , 1 ) )
@@ -662,8 +662,8 @@ body,html
 
 	//texto
 	.pageBlog__content__article__text
-		text-align: justify
-		width     : 49%
+		//text-align: justify
+		width     : 60%
 	//botón ver más
 	.btn__show-more-post
 		background     : $orange_constructec

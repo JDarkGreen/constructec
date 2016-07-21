@@ -207,7 +207,39 @@ var j = jQuery.noConflict();
 		/*|-------------------------------------------------------------|*/
 		/*|-----  VALIDADOR FORMULARIO.  ------|*/
 		/*|--------------------------------------------------------------|*/
-		j('#form-contacto').parsley();
+		if( j('#form-contacto').length )
+		{
+			j('#form-contacto').parsley();
+
+			j("#form-contacto").submit( function(e){
+				e.preventDefault();
+				//Subir el formulario mediante ajax
+				j.post( url + '/email/enviar.php', 
+				{ 
+					name   : j("#input_name").val(),
+					address: j("#input_address").val(),
+					email  : j("#input_email").val(),
+					message: j("#input_consulta").val(),
+					//phone  : j("#input_phone").val(),
+					//subject: j("#input_subject").val(),
+				},function(data){
+					alert( data );
+
+					j("#input_name").val("");
+					j("#input_address").val("");
+					j("#input_email").val("");
+					//j("#input_phone").val("");
+					//j("#input_subject").val("");
+					j("#input_consulta").val("");
+
+					window.location.reload(false);
+				});			
+			}); 
+		} /* end conditional */
+
+
+
+
 
 	});
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

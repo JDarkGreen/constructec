@@ -108,8 +108,11 @@
 
 		</section> <!-- /.mainFooter__developer -->
 	</footer><!-- /.mainFooter -->
-
+	
 	<?php wp_footer(); ?>
+	
+	<!-- Variable de Control url root -->
+	<script> var url = "<?= THEMEROOT ?>"; </script>
 </body>
 </html>
 

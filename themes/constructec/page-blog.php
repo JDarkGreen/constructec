@@ -20,6 +20,7 @@
 <section class="pageBlog">
 	<div class="container">
 		<div class="row">
+
 			<!-- Seccion de Blogs -->
 			<div class="col-xs-12 col-sm-8">
 				<section class="pageBlog__content">
@@ -61,36 +62,44 @@
 					<?php endwhile; endif; wp_reset_postdata(); ?>
 				</section> <!-- /.pageBlog__content -->
 			</div> <!-- /.col-xs-8 -->
-			<!-- Aside de red social -->
-			<div class="col-xs-12 col-sm-4">
-				<!-- Facebook -->
-				<?php $link_facebook = $options['red_social_fb']; 
-					if( !empty($link_facebook) ) :
-				?>
-				<section class="pageInicio__miscelaneo__facebook">
-					<!-- Contebn -->
-					<div id="fb-root" class=""></div>
 
-					<!-- Script -->
-					<script>(function(d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0];
-						if (d.getElementById(id)) return;
-						js = d.createElement(s); js.id = id;
-						js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5";
-						fjs.parentNode.insertBefore(js, fjs);
-					}(document, 'script', 'facebook-jssdk'));</script>
+			<!-- Sidebar de categorias y blog -->
+			<div class="col-xs-12 col-md-4">
+				<aside class="pageArticle__sidebar">
 
-					<div class="fb-page" data-href="<?= $link_facebook ?>" data-tabs="timeline" data-small-header="false"  data-adapt-container-width="true" data-height="420" data-hide-cover="false" data-show-facepile="true">
-						<div class="fb-xfbml-parse-ignore">
-							<blockquote cite="<?= $link_facebook ?>">
-								<a href="<?= $link_facebook ?>"><?php bloginfo('name'); ?></a>
-							</blockquote>
+					<!-- Incluir las categorias de los posts -->
+					<?php include( locate_template("partials/categories-post.php") ); ?>
+
+					<!-- Facebook -->
+					<?php $link_facebook = $options['red_social_fb']; 
+						if( !empty($link_facebook) ) :
+					?>
+					<section class="pageInicio__miscelaneo__facebook">
+						<!-- Contebn -->
+						<div id="fb-root" class=""></div>
+
+						<!-- Script -->
+						<script>(function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0];
+							if (d.getElementById(id)) return;
+							js = d.createElement(s); js.id = id;
+							js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5";
+							fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
+
+						<div class="fb-page" data-href="<?= $link_facebook ?>" data-tabs="timeline" data-small-header="false"  data-adapt-container-width="true" data-height="420" data-hide-cover="false" data-show-facepile="true">
+							<div class="fb-xfbml-parse-ignore">
+								<blockquote cite="<?= $link_facebook ?>">
+									<a href="<?= $link_facebook ?>"><?php bloginfo('name'); ?></a>
+								</blockquote>
+							</div>
 						</div>
-					</div>
-				</section> <!-- /.pageInicio__miscelaneo__facebook text-xs-center -->
+					</section> <!-- /.pageInicio__miscelaneo__facebook text-xs-center -->
 
-				<?php endif; ?>
-			</div> <!-- /.col-xs-4 -->
+					<?php endif; ?>
+				</aside> <!-- /.pageArticle__sidebar -->
+			</div> <!-- /.col-xs-12 col-md-4 -->
+
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
 </section> <!-- /.pageBlog -->
