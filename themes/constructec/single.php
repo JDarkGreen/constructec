@@ -19,8 +19,22 @@
 <main class="pageBlog__article">
 
 	<div class="container">
+
+		<!-- Botón Mobile de Servicios -->
+		<button type="button" class="btn btn-danger hidden-sm-up js-toggle-display-container" data-target="toggle-container-categories">
+			<?= __("Todas las Categorías Aquí" , "LANG" ); ?>			
+		</button>
+
+		<!-- Espacios --> <p class="hidden-sm-up" ></p>
+		
+		<div id="toggle-container-categories" class="hidden-xs-down">
+			<!-- Incluir las categorias de los posts -->
+			<?php include( locate_template("partials/categories-post.php") ); ?>
+		</div> <!-- /.hidden-xs-down -->
+
 		<div class="row">
-			<div class="col-xs-12 col-md-8">
+
+			<div class="col-xs-12 col-sm-8">
 				<!-- Article -->
 				<article class="pageArticle__content">
 					<!-- Titulo -->
@@ -40,8 +54,9 @@
 						<?= apply_filters('the_content', $post->post_content ); ?>
 					<?php endif; ?>
 				</article> <!-- /.pageArticle__content -->
-			</div> <!-- /.col-xs-12 col-md-8 -->
-			<div class="col-xs-12 col-md-4">
+			</div> <!-- /.col-xs-12 col-sm-8 -->
+
+			<div class="col-xs-12 hidden-xs-down">
 				<aside class="pageArticle__sidebar">
 
 					<!-- Incluir las categorias de los posts -->
@@ -75,7 +90,8 @@
 
 					<?php endif; ?>
 				</aside> <!-- /.pageArticle__sidebar -->
-			</div> <!-- /.col-xs-12 col-md-4 -->
+			</div> <!-- /.col-xs-12 hidden-xs-down -->
+
 		</div> <!--/.row -->
 	</div> <!-- /.container -->
 

@@ -267,6 +267,7 @@ var j = jQuery.noConflict();
 		/*|-----  SLIDE OUT   ------|*/
 		/*|--------------------------------------------------------------|*/
 		
+		//SlideOut para Menu de Navegación
 		var slideout = new Slideout({
 			'panel'    : document.getElementById('slideout-container-panel'),
 			'menu'     : document.getElementById('slideout-menu-mobile'),
@@ -286,6 +287,39 @@ var j = jQuery.noConflict();
 		slideout.on('beforeclose', function() {
 		  document.querySelector('.fixed').classList.remove('fixed-open');
 		});
+
+		/**
+		* @Abrir Contenedores toggle
+		***/
+
+		if( j(".js-toggle-display-container").length )
+		{
+
+			j(".js-toggle-display-container").on('click' , function(){
+
+				var btn_toggle       = j(this);	
+				var target_container = j('#'+ btn_toggle.attr('data-target') );
+
+				//Remover clase de ocultar y hacer un slide
+				if( target_container.hasClass('open-container') )
+				{
+					target_container
+					.removeClass('open-container')
+					.slideUp();
+
+				}else{
+					target_container
+					.removeClass('hidden-xs-down hide hidden')
+					.css('display','none')
+					.addClass('open-container')
+					.slideDown();
+				}
+
+				
+			});
+		}
+		
+
 
 
 	});

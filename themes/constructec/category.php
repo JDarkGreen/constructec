@@ -17,7 +17,24 @@
 <!-- Contenido Principal -->
 <section class="pageBlog">
 	<div class="container">
+
+		<!-- Botón Mobile de Servicios -->
+		<button type="button" class="btn btn-danger hidden-sm-up js-toggle-display-container" data-target="toggle-container-categories">
+			<?= __("Todas las Categorías Aquí" , "LANG" ); ?>			
+		</button>
+
+		<!-- Espacios --> <p class="hidden-sm-up" ></p>
+		
+		<div id="toggle-container-categories" class="hidden-xs-down">
+			<!-- Incluir las categorias de los posts -->
+			<?php 
+				$category_slug = $category->slug;
+				include( locate_template("partials/categories-post.php") ); 
+			?>
+		</div> <!-- /.hidden-xs-down -->
+
 		<div class="row">
+
 			<!-- Seccion de Blogs -->
 			<div class="col-xs-12 col-sm-8">
 				<section class="pageBlog__content">
@@ -60,14 +77,17 @@
 					<?php endwhile; endif; wp_reset_postdata(); ?>
 				</section> <!-- /.pageBlog__content -->
 			</div> <!-- /.col-xs-8 -->
+
 			<!-- Aside de red social -->
 			<div class="col-xs-12 col-sm-4">
 
 				<!-- Incluir las categorias de los posts -->
-				<?php 
-					$category_slug = $category->slug;
-					include( locate_template("partials/categories-post.php") ); 
-				?>		
+				<div class="hidden-xs-down">
+					<?php 
+						$category_slug = $category->slug;
+						include( locate_template("partials/categories-post.php") ); 
+					?>		
+				</div> <!-- /(.hidden-xs-down) -->
 
 				<!-- Facebook -->
 				<?php $link_facebook = $options['red_social_fb']; 
@@ -97,6 +117,7 @@
 
 				<?php endif; ?>
 			</div> <!-- /.col-xs-4 -->
+
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
 </section> <!-- /.pageBlog -->

@@ -64,6 +64,11 @@
     <?php include( locate_template('partials/main-menu-nav.php') ); ?>
 </aside>
 
+<!-- Menu Para Navegación Servicios Mobile -->
+<div id="slideout-menu-service" class="sidebarMobile">
+	
+</div> <!-- /.sidebarMobile -->
+
 <!-- Header Mobile -->
 <header class="mainHeader hidden-sm-up fixed">
 	

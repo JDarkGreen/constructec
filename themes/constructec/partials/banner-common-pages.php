@@ -4,15 +4,15 @@
 	
 	<!-- BANNER DE LA PAGINA -->
 	<section class="pageCommon__banner relative">
-		<figure>
-			<!-- Conseguir el banner por defecto -->
-			<?php $img_banner = get_post_meta($banner->ID, 'input_img_banner_'.$banner->ID , true); 
-				if( !empty($img_banner) && $img_banner != -1 ) :
-			?>
-				<img src="<?= $img_banner ?>" alt="banner-nosotros-empresa-pbg" class="img-fluid" />
-			<?php else: ?>
-				<img src="<?= IMAGES ?>/pages/banner_default.jpg" alt="banner-nosotros-empresa-pbg" class="img-fluid" />
-			<?php endif; ?>
+		<!-- Conseguir el banner por defecto -->
+		<?php 
+			$img_banner = get_post_meta($banner->ID, 'input_img_banner_'.$banner->ID , true); 
+			
+			$img_banner = !empty($img_banner) && $img_banner !== -1 ? $img_banner : IMAGES . '/pages/banner_default.jpg';
+		?>
+
+		<figure style="background-image: url( <?= $img_banner; ?> ) ">
+			<img src="<?= $img_banner ?>" alt="banner-nosotros-empresa" class="img-fluid hidden-xs-down" />
 		</figure>
 
 		<!-- Título de la pagina posicion absoluta -->

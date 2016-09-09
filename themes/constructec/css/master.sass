@@ -184,17 +184,18 @@ body,html
 	figure 
 		margin: 0 auto
 .pageCommon__banner__title
-	color          : white
-	position       : absolute
-	top            : 0
-	display        : flex
 	align-items    : center
-	left           : 0
-	right          : 0
 	bottom         : 0
-	justify-content: center
 	color          : white
+	color          : white
+	display        : flex
 	font-size      : 25px
+	justify-content: center
+	left           : 0
+	padding        : 0 15px 
+	position       : absolute
+	right          : 0
+	top            : 0
 	//strong 
 	strong 
 		position: relative
@@ -644,6 +645,7 @@ body,html
 //artículo
 .pageBlog__content__article
 	display        : flex
+	flex-wrap      : wrap 
 	justify-content: space-between
 	margin         : 0 auto 30px
 	//imagen
@@ -923,7 +925,12 @@ body,html
 	/** [ PANEL CONTAINER MOBILE ]**/
 	#slideout-container-panel
 		background: white 
-		padding   : 70px 0 0 0
+
+	/**[ PÁGINAS COMUNES ]**/
+	.pageCommon__banner 
+		figure
+			background-size: cover 
+			height         : 120px
 
 	/**[ HEADER ]**/
 	
@@ -1023,6 +1030,27 @@ body,html
 		+text-shadow( 1px 1px 3px white )
 		background: black 
 		padding   : 20px 
+
+	/**[ PÁGINA SERVICIO ]**/
+	.pageServicio
+		margin: 20px 0
+		
+
+	/**[ PÁGINA BLOG ]**/
+	.pageBlog__content
+		padding: 0
+		border : none
+
+	//Item Preview
+	.pageBlog__content__article 
+		figure
+			width: 100%
+		.pageBlog__content__article__text
+			width: 100%
+
+	/**[ PÁGINA CONTACTO ]**/
+	.pageContacto__menu-contacto
+		margin: 0 auto 60px
 
 	/**[ FOOTER ]**/
 	.mainFooter__content__title

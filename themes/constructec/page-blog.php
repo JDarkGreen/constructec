@@ -18,7 +18,21 @@
 
 <!-- Contenido Principal -->
 <section class="pageBlog">
+
 	<div class="container">
+
+		<!-- Botón Mobile de Servicios -->
+		<button type="button" class="btn btn-danger hidden-sm-up js-toggle-display-container" data-target="toggle-container-categories">
+			<?= __("Todas las Categorías Aquí" , "LANG" ); ?>			
+		</button>
+
+		<!-- Espacios --> <p class="hidden-sm-up" ></p>
+		
+		<div id="toggle-container-categories" class="hidden-xs-down">
+			<!-- Incluir las categorias de los posts -->
+			<?php include( locate_template("partials/categories-post.php") ); ?>
+		</div> <!-- /.hidden-xs-down -->
+
 		<div class="row">
 
 			<!-- Seccion de Blogs -->
@@ -64,7 +78,8 @@
 			</div> <!-- /.col-xs-8 -->
 
 			<!-- Sidebar de categorias y blog -->
-			<div class="col-xs-12 col-md-4">
+			<div class="col-xs-12 hidden-xs-down">
+
 				<aside class="pageArticle__sidebar">
 
 					<!-- Incluir las categorias de los posts -->
@@ -98,7 +113,7 @@
 
 					<?php endif; ?>
 				</aside> <!-- /.pageArticle__sidebar -->
-			</div> <!-- /.col-xs-12 col-md-4 -->
+			</div> <!-- /.col-xs-12 hidden-xs-down -->
 
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->

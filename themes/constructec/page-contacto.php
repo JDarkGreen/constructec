@@ -51,10 +51,12 @@
 				
 				<!-- Redes Sociales -->
 				<section class="pageContacto__content">
+
 					<!-- Titulo -->
 					<h2 class="sectionCommon__subtitle text-uppercase">
-					<strong><?php _e( 'redes sociales' , LANG ); ?></strong>
+						<strong><?php _e( 'redes sociales' , LANG ); ?></strong>
 					</h2>
+
 					<!-- Menu redes sociales -->
 					<ul class="pageContacto__social-link">
 						<!-- Youtube -->
@@ -70,7 +72,10 @@
 						<?php $fb = $options['red_social_fb']; if( !empty($fb)): ?>
 						<li><a target="_blank" href="<?= $fb ?>"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 						<?php endif; ?>
-					</ul> <!-- /.mainFooter__social-link -->					
+					</ul> <!-- /.mainFooter__social-link -->	
+					
+					<!-- Espacio mobile --> <br class="hidden-sm-up" />
+
 				</section> <!-- /.pageContacto__content pageContacto__social-link -->
 			</div> <!-- /.col-xs-12 col-sm-5 -->
 
