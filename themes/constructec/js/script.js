@@ -15,7 +15,23 @@ var j = jQuery.noConflict();
 		var i = 1;
 
 		//eventos
+		var i = 1;
+
+		//eventos
 		carousel_home.on('slid.bs.carousel', function ( e ) {
+			if( i > 2 ){ i = 1 };
+			
+			var current_item = j(this).find('.active');
+  			//imagen actual
+  			var image_carousel = current_item.find('img');
+  			//animacion de la imagen
+  			if( i == 1 ){
+  				image_carousel.addClass('box-expand');
+  			}else{
+  				image_carousel.addClass('box-contract');
+  			}
+
+  			i++;
 
   			//animacion de las contenidos
   			var title = current_item.find('h3');
@@ -141,7 +157,16 @@ var j = jQuery.noConflict();
 				responsiveClass: true,
 				mouseDrag      : false,
 				autoplayTimeout: 2500,
-				smartSpeed     : 1500,
+				smartSpeed     : 1500, 
+				responsiveClass:true,
+			    responsive:{
+			        0:{
+			            items: 2,
+			       	},
+			        600:{
+			            items: 7,
+			        },
+			    }
 			});
 		}
 
@@ -238,7 +263,29 @@ var j = jQuery.noConflict();
 		} /* end conditional */
 
 
+		/*|-------------------------------------------------------------|*/
+		/*|-----  SLIDE OUT   ------|*/
+		/*|--------------------------------------------------------------|*/
+		
+		var slideout = new Slideout({
+			'panel'    : document.getElementById('slideout-container-panel'),
+			'menu'     : document.getElementById('slideout-menu-mobile'),
+			'padding'  : 256,
+			'tolerance': 70,
+			'touch'    : false,
+		});
 
+		document.querySelector('.toggle-button').addEventListener('click', function() {
+        	slideout.toggle();
+      	});
+
+      	slideout.on('beforeopen', function() {
+		  document.querySelector('.fixed').classList.add('fixed-open');
+		});
+
+		slideout.on('beforeclose', function() {
+		  document.querySelector('.fixed').classList.remove('fixed-open');
+		});
 
 
 	});

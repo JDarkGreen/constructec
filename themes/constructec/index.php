@@ -75,8 +75,9 @@
 <section class="pageInicio__welcome">
 	<div class="container">
 		<div class="row container-flex container-flex-center">
+
 			<!-- Seccion texto -->
-			<div class="col-xs-8">
+			<div class="col-xs-12 col-sm-8">
 				<!-- Titulo -->
 				<h2 class="sectionCommon__subtitle sectionCommon__subtitle--white text-uppercase">
 					<?php 
@@ -88,15 +89,17 @@
 				<?php $welcome_text = $options['widget_nosotros']; if( !empty($welcome_text) ) : ?>
 					<?= apply_filters('the_content', $welcome_text ); ?>
 				<?php endif; ?>
-			</div><!-- /.col-xs-8 -->
+			</div><!-- /.col-xs-12 col-sm-8 -->
+
 			<!-- Seccion Imagen -->
-			<div class="col-xs-4">
+			<div class="col-xs-12 col-sm-4">
 				<?php $welcome_img = $options['image_nosotros']; if( !empty($welcome_img) ) : ?>
 					<figure>
 						<img src="<?= $welcome_img ?>" alt="nosotros-bienvenida-portada-constructec" class="img-fluid" />
 					</figure>
 				<?php endif; ?>
-			</div> <!-- /.col-xs-4 -->
+			</div> <!-- /.col-xs-12 col-sm-4 -->
+
 		</div><!-- /.row -->
 	</div><!-- /.container -->
 </section> <!-- /.pageInicio__welcome -->
@@ -107,7 +110,8 @@
 	<section class="container">
 		<div class="row">
 
-			<div class="col-xs-7">
+			<div class="col-xs-12 col-sm-7">
+
 				<!-- Seccion Trabajos Realizados -->
 				<section class="pageInicio__projects">
 					<!-- Titulo -->
@@ -160,9 +164,13 @@
 					</section> <!-- /.relative -->
 
 				</section> <!-- /.pageInicio__projects -->
-			</div> <!-- /.col-xs-7 -->
 
-			<div class="col-xs-5">
+				<!-- Espacio mobile -->
+				<br class="hidden-sm-up" />
+
+			</div> <!-- /.col-xs-12 col-sm-7-->
+			
+			<div class="col-xs-12 col-sm-5">
 				<!-- Titulo -->
 					<h2 class="sectionCommon__subtitle text-uppercase">
 						<strong><?php _e('facebook' , LANG ); ?></strong>
@@ -195,9 +203,10 @@
 					</section> <!-- /.pageInicio__miscelaneo__facebook text-xs-center -->
 
 				<?php endif; ?>
-			</div> <!-- /.col-xs-5 -->
-		</div>
-	</section>
+			</div> <!-- /.col-xs-12 col-sm-5-->
+
+		</div> <!-- /.row -->
+	</section> <!-- /.container -->
 
 </section> <!-- /. pageInicio__miscelaneo-->
 

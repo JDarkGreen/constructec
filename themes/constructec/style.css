@@ -23,6 +23,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* fancybox */
 @import url("css/fancybox/jquery.fancybox.css"); 
 /* parsley */
-@import url("css/parsley.css"); 
+@import url("css/parsley.css");
+
+/* Slide Out */
+@import url("css/slideout/index.css");
+
 /* archivo master */
 @import url("css/master.css");

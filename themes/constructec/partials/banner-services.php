@@ -3,7 +3,7 @@
 ?>
 
 <!-- Incluir Seccion banner de servicios -->
-<section class="sectionCommonBanner__services">
+<section class="sectionCommonBanner__services text-xs-center">
 	<div class="container">
 		<!-- Texto -->
 		<p class="text-uppercase"><?php _e( 'consulte acerca de nuestros servicios' , LANG ); ?></p>

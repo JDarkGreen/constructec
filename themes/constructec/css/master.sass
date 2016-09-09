@@ -448,10 +448,10 @@ body,html
 
 /* ------------- SECCION DE BIENVENIDA - INICIO ------------- */
 .pageInicio__welcome
-	background: 100% 100%
-	background: url("../images/pages/inicio/banner_nosotros.jpg") no-repeat
-	color     : white
-	padding   : 30px 0 
+	background     : url("../images/pages/inicio/banner_nosotros.jpg")
+	background-size: cover 
+	color          : white
+	padding        : 30px 0 
 
 	//imagen
 	figure 
@@ -901,3 +901,136 @@ body,html
 		a
 			color: rgba(0,0,0, .4)
 
+/*-------------------------------------------------------------------*/
+/**-- MEDIA QUERIES -------------------------------------------**/
+/*-------------------------------------------------------------------*/
+
+//568px
+@media ( max-width: 568px )
+
+	
+	/**[ SIDEBAR MOBILE ]**/
+	.sidebarMobile
+		background-color: #1D1F20
+		background-image: linear-gradient(145deg, #1D1F20, #404348)
+		padding         : 30px 15px 
+
+		//Título
+		h2.sidebar-title 
+			color      : white 
+			font-family: "Monserrat" , sans-serif
+
+	/** [ PANEL CONTAINER MOBILE ]**/
+	#slideout-container-panel
+		background: white 
+		padding   : 70px 0 0 0
+
+	/**[ HEADER ]**/
+	
+	//Main Header
+	.mainHeader
+		align-items    : center 
+		background     : #fff
+		display        : flex
+		flex-wrap      : wrap
+		justify-content: space-around
+		left           : 0
+		padding        : 10px 15px
+		position       : fixed
+		right          : 0
+		top            : 0
+		z-index        : 99999999
+
+		//Toggle button
+		.toggle-button    
+			background : #ff8729	
+			border     : none
+			font-size  : 35px
+			height     : 50px
+			line-height: 1
+			outline    : 0 !important
+			width      : 50px
+
+		//Logo 
+		.logo 
+			margin: 0
+			width : 75%
+
+	//Infor in the header
+	.mainHeader__content__article
+		color    : white 
+		font-size: 12px 
+
+	/**[ NAVIGATION MAIN ]**/
+
+	//Main Navigatión
+	ul.main-menu
+		list-style-type : none 
+		li 
+			a 
+				background     : black
+				color          : white
+				display        : block
+				font-size      : 16px 
+				margin         : 0 0 5px
+				padding        : 10px
+				text-decoration: none !important
+				+transition( all 500ms ease-in-out )
+
+			//Hover and active
+			&:hover , &.current-menu-item , &.current_page_item
+				a 
+					background: #ff8729
+					color     : black 
+
+		//Submenu
+		ul.sub-menu
+			padding: 0 0 0 20px
+			li 
+				a 
+					background: white 
+					color     : black 
+					font-size : 14px 
+
+	/**[ PÁGINA INICIO ]**/
+
+	//Carousel Slider Home
+	.pageInicio__slider
+		margin: 0 auto
+		
+		//Carousel Inner
+		.carousel-inner 
+			.carousel-item 
+				.carousel-caption
+					top      : 10%
+					word-wrap: break-word
+					//Párrafos
+					p 
+						font-size : 35px
+
+		//Imágen destacad
+		figure.image-featured
+			background-size: cover 
+			height         : 280px 
+
+	//Carousel Proyectos
+	.pageInicio__projects__carousel 
+		.item-carousel-project__title
+			height: 85px
+
+	/**[ PÁGINA EMPRESA ]**/
+	.pageEmpresa__mision__content
+		+text-shadow( 1px 1px 3px white )
+		background: black 
+		padding   : 20px 
+
+	/**[ FOOTER ]**/
+	.mainFooter__content__title
+		display   : block
+		text-align: center 
+
+	.mainFooter__content 
+		border: none 
+		margin: 0 auto 30px 
+		p
+			padding : 0

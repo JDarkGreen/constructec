@@ -1,11 +1,12 @@
-
-<!-- Extraer opciones  -->
-<?php $options = get_option('constructec_custom_settings'); ?>
+	<!-- Extraer opciones  -->
+	<?php $options = get_option('constructec_custom_settings'); ?>
 
 	<footer class="mainFooter">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-8">
+
+				<div class="col-xs-12 col-sm-8">
+
 					<!-- Informacion del footer -->
 					<section class="mainFooter__content">
 						<!-- Titulo -->
@@ -18,14 +19,14 @@
 						<div class="row"> 
 
 							<!-- Contenido -->
-							<div class="col-xs-4">
+							<div class="col-xs-12 col-sm-4">
 								<!-- Imagen -->
 								<figure>
 									<img src="<?= IMAGES ?>/footer/logo_constructec_blanco.png" alt="logo-footer-constructec" class="img-fluid" />
 								</figure> <!-- /.figure -->
 							</div> <!-- /.col-xs-6 -->
 
-							<div class="col-xs-8">
+							<div class="col-xs-12 col-sm-8">
 								<?php  
 									$footer_text = $options['widget_footer']; 
 									if( !empty($footer_text) ) :
@@ -56,8 +57,11 @@
 						</div> <!-- /.row -->
 
 					</section> <!-- /.mainFooter__content -->
-				</div> <!-- /.col-xs-8 -->
-				<div class="col-xs-4">
+
+				</div> <!-- /.col-xs-12 col-sm-8 -->
+
+				<div class="col-xs-12 col-sm-4">
+
 					<!-- Informacion de Contacto -->
 					<section class="mainFooter__content mainFooter__content--no-border">
 						<!-- Titulo -->
@@ -89,8 +93,10 @@
 							<?php endif; ?>
 						</ul> <!-- /.mainFooter__menu-contacto -->
 						
-					</section> <!-- /.mainFooter__content -->					
-				</div> <!-- ./col-xs-4 -->
+					</section> <!-- /.mainFooter__content -->	
+
+				</div> <!-- ./col-xs-12 col-sm-4 -->
+
 			</div><!-- /.row -->
 		</div><!-- /.container -->
 
@@ -102,7 +108,7 @@
 		
 
 				<!-- Desarrollado por IngenioArt and JDarkgreen -->
-				<p class="text-developer pull-xs-right">Desarrollado por: <a href="http://ingenioart.com/" target="_blank">INGENIOART</a></p>
+				<p class="text-developer pull-sm-right">Desarrollado por: <a href="http://ingenioart.com/" target="_blank">INGENIOART</a></p>
 			
 			</section> <!-- /.container -->
 
@@ -113,6 +119,10 @@
 	
 	<!-- Variable de Control url root -->
 	<script> var url = "<?= THEMEROOT ?>"; </script>
+
+</main> <!-- /#menu -->
+
+
 </body>
 </html>
 

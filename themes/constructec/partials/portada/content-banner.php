@@ -19,11 +19,15 @@
   <div class="carousel-inner" role="listbox">
 		<?php while( $the_query->have_posts() ) : $the_query->the_post(); ?> 
 	    <div class="carousel-item <?= $i == 0 ? 'active' : '' ?>">
-	    	<?php if( has_post_thumbnail() ) : ?>
-	    		<?php the_post_thumbnail('full', array('class'=>'img-fluid') ); ?>
-	    	<?php else: ?>
-	    		<img src="http://lorempixel.com/1920/682/business" alt="none" class="img-fluid" />
-	    	<?php endif; ?>
+			
+			<!-- Imagen destacada -->
+	    	<?php $feat_img = has_post_thumbnail() ? wp_get_attachment_url( get_post_thumbnail_id() ) : 'http://lorempixel.com/1920/682/business'; ?>
+	    	
+	    	<img src="<?= $feat_img; ?>" alt="<?= get_the_title(); ?>" class="img-fluid m-x-auto d-block hidden-xs-down" />
+
+	    	<!-- Figure O Imágen Para Mobile -->
+	    	<figure class="image-featured" style="background-image : url( <?= $feat_img; ?> )">	
+	    	</figure>
 				
 				<div class="container">
 		    	<!-- CAPTION O INFORMACION -->
